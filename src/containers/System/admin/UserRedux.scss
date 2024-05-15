@@ -1,0 +1,47 @@
+.user-redux-body {
+
+    .btn {
+        width: 120px;
+        margin-left: 10px;
+    }
+
+    .add-user {
+        font-size: 16px;
+        font-weight: 600;
+        color: #0071BA;
+    }
+
+    div {
+        margin-bottom: 10px;
+
+        .upload-img {
+            display: flex;
+            justify-content: space-between;
+            align-items: left;
+            flex-direction: column;
+
+            .upload-btn {
+                height: 32px;
+                width: 100px;
+                background-color: #f6f6f6;
+                border: 1px solid #d9d9d9;
+                cursor: pointer;
+                text-align: center;
+                border-radius: 3px;
+                padding-top: 4px;
+                margin-bottom: 4px;
+            }
+
+            .preview-img {
+                width: 50%;
+                height: 50px;
+                border: 1px solid gray;
+                border-radius: 5px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                cursor: pointer;
+            }
+        }
+    }
+}

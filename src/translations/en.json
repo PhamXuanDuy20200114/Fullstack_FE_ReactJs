@@ -1,0 +1,121 @@
+{
+    "local": {
+        "more": "More"
+    },
+    "homeheader": {
+        "specialty": "Specialty",
+        "search-doctor": "Find a doctor by specialty",
+        "health-facility": "Health facility",
+        "select-room": "Choose hopsital clinic",
+        "doctor": "Doctor",
+        "find-good-doctor": "Choose a good doctor",
+        "medical-package": "Checkup package",
+        "general-health-check": "General health check",
+        "support": "Support",
+        "welcome": "Welcome, "
+    },
+    "homeservice": {
+        "comprehensive-service": "Comprehensive service",
+        "check-by-specialty": "Check by specialty",
+        "remote-check": "Remote health check",
+        "general-check": "General health check",
+        "medical-testing": "Medical testing",
+        "mental-health": "Mental health",
+        "dental-check": "Dental check",
+        "surgery-package": "Surgery package",
+        "diabetes-care": "Diabetes care",
+        "health-checkup": "Health checkup",
+        "healthcare-near-you": "Healthcare near you"
+    },
+    "specialty": {
+        "specialty": "Specialty",
+        "more": "More",
+        "musculoskeletal": "Musculoskeletal",
+        "neurology": "Neurology",
+        "gastroenterology": "Gastroenterology",
+        "cardiology": "Cardiology",
+        "otorhinolaryngology": "Otorhinolaryngology",
+        "spine": "Spine",
+        "traditional-medicine": "Traditional medicine",
+        "acupuncture": "Acupuncture",
+        "obstetrics-gynecology": "Obstetrics - Gynecology",
+        "pediatrics": "Pediatrics",
+        "ophthalmology": "Ophthalmology",
+        "dermatology": "Dermatology",
+        "urology": "Urology",
+        "endocrinology": "Endocrinology",
+        "psychiatry": "Psychiatry",
+        "dentistry": "Dentistry",
+        "hepatitis": "Hepatitis",
+        "digestive": "Digestive",
+        "respiratory": "Respiratory",
+        "infertility": "Infertility"
+    },
+    "doctor": {
+        "out-standing-doctor": "Outstanding doctor",
+        "more": "More",
+        "doctor": "Doctor",
+        "professor": "Professor",
+        "associate-professor": "Associate Professor",
+        "doctorate": "Doctorate"
+    },
+    "medicalfacility": {
+        "medical-facility": "Medical facility",
+        "more": "More",
+        "hospital": "Hospital"
+    },
+    "mentalhealth": {
+        "mental-health": "Mental health",
+        "health-test": "Health test",
+        "counseling-psychological-therapy": "Counseling - Psychological therapy"
+    },
+    "handbook": {
+        "hand-book": "Hand Book"
+    },
+    "menu": {
+        "system": {
+            "header": "System",
+            "system-administrator": {
+                "header": "System Administrator",
+                "user-manage": "User manage",
+                "product-manage": "Package manage",
+                "register-package-group-or-account": "Register service package for group/account",
+                "user-redux": "User redux"
+            },
+            "system-parameter": {
+                "header": "System-parameter"
+            }
+        },
+        "admin": {
+            "manage-user": "User",
+            "manage-doctor": "Manage doctor",
+            "manage-admin": "Manage admin",
+            "crud": "CRUD user",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Clinic",
+            "specialty": "Specialty",
+            "hand-book": "Handbook",
+            "manage-clinic": "Manage clinic",
+            "manage-specialty": "Manage specialty",
+            "manage-hand-book": "Manage handbook"
+        }
+    },
+    "manageuser": {
+        "add": "Add new user",
+        "password": "Password",
+        "first-name": "First name",
+        "last-name": "Last name",
+        "email": "Email",
+        "phone": "Phone",
+        "address": "Address",
+        "gender": "Gender",
+        "role": "Role",
+        "image": "Image",
+        "save": "Save",
+        "position": "Position",
+        "choose": "Choose",
+        "choose-image": "Upload",
+        "action": "Action",
+        "save-change": "Save change"
+    }
+}

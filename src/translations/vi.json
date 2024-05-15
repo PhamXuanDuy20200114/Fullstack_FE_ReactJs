@@ -1,0 +1,118 @@
+{
+    "local": {
+        "more": "Xem thêm"
+    },
+    "homeheader": {
+        "specialty": "Chuyên khoa",
+        "search-doctor": "Tìm kiếm bác sĩ theo chuyên khoa",
+        "health-facility": "Cơ sở y tế",
+        "select-room": "Chọn bệnh viện phòng khám",
+        "doctor": "Bác sĩ",
+        "find-good-doctor": "Tìm kiếm bác sĩ giỏi",
+        "medical-package": "Gói khám",
+        "general-health-check": "Khám sức khỏe tổng quát",
+        "support": "Hỗ trợ",
+        "welcome": "Xin chào, "
+    },
+    "homeservice": {
+        "comprehensive-service": "Dịch vụ toàn diện",
+        "check-by-specialty": "Khám chuyên khoa",
+        "remote-check": "Khám từ xa",
+        "general-check": "Khám tổng quát",
+        "medical-testing": "Xét nghiệm y học",
+        "mental-health": "Sức khỏe tinh thần",
+        "dental-check": "Khám nha khoa",
+        "surgery-package": "Gói phẫu thuật",
+        "diabetes-care": "Sức khỏe Tiểu đường",
+        "health-checkup": "Bài Test sức khỏe",
+        "healthcare-near-you": "Y tế gần bạn"
+    },
+    "specialty": {
+        "specialty": "Chuyên khoa",
+        "musculoskeletal": "Cơ xương khớp",
+        "neurology": "Thần kinh",
+        "gastroenterology": "Tiêu hóa",
+        "cardiology": "Tim mạch",
+        "otorhinolaryngology": "Tai mũi họng",
+        "spine": "Cột sống",
+        "traditional-medicine": "Y học cổ truyền",
+        "acupuncture": "Châm cứu",
+        "obstetrics-gynecology": "Sản phụ khoa",
+        "pediatrics": "Nhi khoa",
+        "ophthalmology": "Mắt",
+        "dermatology": "Da liễu",
+        "urology": "Tiết niệu",
+        "endocrinology": "Nội tiết",
+        "psychiatry": "Sức khỏe tâm thần",
+        "dentistry": "Nha khoa",
+        "hepatitis": "Viêm gan",
+        "digestive": "Tiêu hóa",
+        "respiratory": "Hô hấp",
+        "infertility": "Vô sinh hiếm muộn"
+    },
+    "doctor": {
+        "out-standing-doctor": "Bác sĩ nổi bật",
+        "doctor": "Bác sĩ",
+        "professor": "Giáo sư",
+        "associate-professor": "Phó giáo sư",
+        "doctorate": "Tiến sĩ"
+    },
+    "medicalfacility": {
+        "medical-facility": "Cơ sở y tế",
+        "hospital": "Bệnh viện"
+    },
+    "mentalhealth": {
+        "mental-health": "Sức khỏe tinh thần",
+        "health-test": "Bài Test sức khỏe",
+        "counseling-psychological-therapy": "Tư vấn - Trị liệu Tâm lý"
+    },
+    "handbook": {
+        "hand-book": "Cẩm nang"
+    },
+    "menu": {
+        "system": {
+            "header": "Hệ thống",
+            "system-administrator": {
+                "header": "Quản trị hệ thống",
+                "user-manage": "Quản lý người sử dụng",
+                "product-manage": "Quản lý gói",
+                "register-package-group-or-account": "Đăng ký gói dịch vụ cho nhóm/tài khoản",
+                "user-redux": "Quản lý người sử dụng (Redux)"
+            },
+            "system-parameter": {
+                "header": "Tham số hệ thống"
+            }
+        },
+        "admin": {
+            "manage-user": "Người dùng",
+            "manage-doctor": "Quản lý bác sĩ",
+            "manage-admin": "Quản lý admin",
+            "crud": "CRUD người dùng",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Phòng khám",
+            "specialty": "Chuyên khoa",
+            "hand-book": "Cẩm nang",
+            "manage-clinic": "Quản lý phòng khám",
+            "manage-specialty": "Quản lý chuyên khoa",
+            "manage-hand-book": "Quản lý Cẩm nang"
+        }
+    },
+    "manageuser": {
+        "add": "Thêm người dùng",
+        "password": "Mật khẩu",
+        "first-name": "Tên",
+        "last-name": "Họ",
+        "email": "Email",
+        "phone": "Số điện thoại",
+        "address": "Địa chỉ",
+        "gender": "Giới tính",
+        "role": "Vai trò",
+        "image": "Ảnh",
+        "save": "Lưu",
+        "position": "Chức vụ",
+        "choose": "Chọn",
+        "choose-image": "Chọn ảnh",
+        "action": "Hành động",
+        "save-change": "Lưu thay đổi"
+    }
+}

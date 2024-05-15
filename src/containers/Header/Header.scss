@@ -1,0 +1,56 @@
+@import "../../styles/common.scss";
+
+.header-container {
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+    background-color: $colormain;
+    color: $common-text-color;
+    height: 40px;
+    position: relative;
+
+    .left-content {
+        display: flex;
+        flex-direction: row;
+
+        .languages {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 10px;
+            cursor: pointer;
+            color: #35afd2;
+
+
+            .active {
+                color: orange;
+
+            }
+
+            .language-vi {
+                margin-right: 5px;
+            }
+
+            .welcome {
+                margin-right: 15px;
+                color: $common-text-color;
+            }
+        }
+
+        .btn-logout {
+            color: $common-text-color;
+            line-height: 40px;
+            height: 40px;
+            padding: 0 10px;
+
+            &:hover {
+                background-color: darken($colormain, 5);
+            }
+
+            i {
+                font-size: $base-size + 1px;
+            }
+        }
+    }
+
+}
