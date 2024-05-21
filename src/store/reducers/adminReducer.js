@@ -6,6 +6,7 @@ const initialState = {
     positions: [],
     users: [],
     topDoctors: [],
+    doctors: [],
     isLoadingUsers: false,
     emailExist: ''
 }
@@ -122,6 +123,7 @@ const appReducer = (state = initialState, action) => {
             }
 
         //Doctor
+        //get top doctor
         case actionTypes.FETCH_TOP_DOCTOR_SUCCESS:
             state.topDoctors = action.data;
             return {
@@ -133,6 +135,31 @@ const appReducer = (state = initialState, action) => {
                 ...state,
             }
 
+        //get all doctor
+        case actionTypes.FETCH_ALL_DOCTOR_SUCCESS:
+            state.doctors = action.data;
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALL_DOCTOR_FAIL:
+            console.log('fetchTopDoctorFail', action);
+            return {
+                ...state,
+            }
+
+        //save detail doctor
+        case actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS:
+            console.log('SAVE DETAIL DOCTOR SUCCESS', action)
+            toast.success('SAVE DETAIL DOCTOR SUCCESS!');
+            return {
+                ...state
+            }
+        case actionTypes.SAVE_DETAIL_DOCTOR_FAIL:
+            console.log('SAVE DETAIL DOCTOR FAIL', action)
+            toast.error('SAVE DETAIL DOCTOR FAIL!');
+            return {
+                ...state
+            }
         default:
             return state;
     }

@@ -48,6 +48,8 @@
                     font-weight: 600;
                     margin-top: 10px;
                     text-align: center;
+                    width: 250px;
+                    padding-right: 10px;
                 }
 
                 .specialty {
@@ -73,6 +75,10 @@
 .slick-next:before {
     color: #34929E;
     font-size: 44px;
+}
+
+.slick-disabled {
+    display: none !important;
 }
 
 .home-footer {

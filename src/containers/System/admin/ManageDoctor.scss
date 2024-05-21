@@ -1,0 +1,38 @@
+.manage-doctor-container {
+    padding: 5px;
+
+    .manage-doctor-editer {}
+
+    .save-content-doctor {
+        background-color: orange;
+        width: 50px;
+        height: 24px;
+        border-radius: 5px;
+        margin-top: 10px;
+        border: none;
+        color: white;
+        font-size: 14px;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .more-info {
+        display: flex;
+        margin: 10px 5px;
+        gap: 15px;
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        .content-left {
+            width: 40%;
+        }
+
+        .content-right {
+            width: 60%;
+        }
+    }
+}
