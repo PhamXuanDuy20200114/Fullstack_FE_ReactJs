@@ -4,9 +4,24 @@
     .manage-doctor-editer {}
 
     .save-content-doctor {
+        background-color: #0071BA;
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+        margin-top: 10px;
+        border: none;
+        color: white;
+        font-size: 14px;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .change-content-doctor {
         background-color: orange;
-        width: 50px;
-        height: 24px;
+        width: 100px;
+        height: 30px;
         border-radius: 5px;
         margin-top: 10px;
         border: none;

@@ -7,6 +7,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import "slick-carousel/slick/slick-theme.css"
 import * as action from '../../../store/actions';
+import { withRouter } from 'react-router-dom';
 
 class OutStandingDoctor extends Component {
 
@@ -25,6 +26,11 @@ class OutStandingDoctor extends Component {
         if (prevProps.topDoctors !== this.props.topDoctors) {
             this.setState({ outStandingDoctor: this.props.topDoctors });
         }
+    }
+
+    handleViewDetailDoctor = (doctor) => {
+        console.log('doctor', doctor);
+        this.props.history.push(`/detail-doctor/${doctor.id}`);
     }
 
     render() {
@@ -57,10 +63,10 @@ class OutStandingDoctor extends Component {
                                     let positionVi = `${item.positionData.valueVi}, Bác sĩ ${item.lastName} ${item.firstName}`;
                                     let positionEn = `${item.positionData.valueEn}, Doctor ${item.lastName} ${item.firstName}`;
                                     return (
-                                        <div className='doctor-slide'>
-                                            <div className='img-doctor' style={{ backgroundImage: `url('${imageBase64}')` }}></div>
-                                            <div className='name'>{this.props.language === languages.VI ? positionVi : positionEn}</div>
-                                            <div className='specialty'>Cơ sương khớp</div>
+                                        <div className='doctor-slide' key={item.id} >
+                                            <div className='img-doctor' style={{ backgroundImage: `url('${imageBase64}')` }} onClick={() => this.handleViewDetailDoctor(item)}></div>
+                                            <div className='name' onClick={() => this.handleViewDetailDoctor(item)}>{this.props.language === languages.VI ? positionVi : positionEn} </div>
+                                            <div className='specialty' onClick={() => this.handleViewDetailDoctor(item)}>Cơ sương khớp</div>
                                         </div>
                                     )
                                 })}
@@ -90,4 +96,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor));

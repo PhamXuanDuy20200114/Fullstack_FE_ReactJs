@@ -1,6 +1,6 @@
 import actionTypes from './actionTypes';
 import { getAllCode, createNewUser, getAllUsers, deleteUserService, updateUserService } from '../../services/userService';
-import { getTopDoctor, getAllDoctors, createDetailDoctor } from '../../services/doctorService';
+import { getTopDoctor, getAllDoctors, createDetailDoctor, getDetailDoctor, updateDetailDoctor } from '../../services/doctorService';
 
 //start doing end
 
@@ -294,5 +294,60 @@ export const saveDetailDoctorSuccess = () => ({
 export const saveDetailDoctorFail = () => ({
     type: actionTypes.SAVE_DETAIL_DOCTOR_FAIL,
 
+})
+
+//get doctor
+export const getDetailDoctorById = (id) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getDetailDoctor(id);
+            if (res && res.errCode === 0) {
+                dispatch(getDoctorByIdSuccess(res.data));
+            } else {
+                dispatch(getDoctorByIdFail())
+            }
+        }
+        catch (e) {
+            dispatch(getDoctorByIdFail());
+            console.log('fetch create user start err: ', e);
+        }
+    }
+}
+
+export const getDoctorByIdSuccess = (data) => ({
+    type: actionTypes.GET_DETAIL_DOCTOR_SUCCESS,
+    data
+})
+
+export const getDoctorByIdFail = () => ({
+    type: actionTypes.GET_DETAIL_DOCTOR_FAIL,
+
+})
+
+//update doctor
+export const updateInfoDoctor = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await updateDetailDoctor(data);
+            if (res && res.errCode === 0) {
+                dispatch(updateInfoDoctorSuccess());
+            } else {
+                dispatch(updateInfoDoctorFail())
+            }
+        }
+        catch (e) {
+            dispatch(updateInfoDoctorFail());
+            console.log('fetch create user start err: ', e);
+        }
+    }
+}
+
+export const updateInfoDoctorSuccess = () => ({
+    type: actionTypes.UPDATE_INFO_DOCTOR_SUCCESS,
+})
+
+
+export const updateInfoDoctorFail = () => ({
+    type: actionTypes.UPDATE_INFO_DOCTOR_FAIL,
 })
 

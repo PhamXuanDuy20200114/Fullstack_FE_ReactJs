@@ -9,8 +9,18 @@ const getAllDoctors = async () => {
 const createDetailDoctor = async (data) => {
     return await axios.post('/api/save-info-doctor', data);
 }
+
+const getDetailDoctor = async (id) => {
+    return await axios.get(`/api/get-info-doctor/?id=${id}`);
+}
+
+const updateDetailDoctor = async (data) => {
+    return await axios.put('/api/update-info-doctor', data);
+}
 export {
     getTopDoctor,
     getAllDoctors,
-    createDetailDoctor
+    createDetailDoctor,
+    getDetailDoctor,
+    updateDetailDoctor
 }

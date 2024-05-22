@@ -6,17 +6,14 @@ import * as action from '../../../store/actions/adminAction';
 import MarkdownIt from 'markdown-it'
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
+import { getDetailDoctor } from '../../../services/doctorService';
 
 import Select from 'react-select'
 
 import './ManageDoctor.scss';
+import { has, update } from 'lodash';
 
 const mdParser = new MarkdownIt();
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-]
 
 class ManageDoctor extends Component {
 
@@ -28,7 +25,8 @@ class ManageDoctor extends Component {
             contentMarkdown: '',
             contentHTML: '',
             selectedOption: null,
-            description: ''
+            description: '',
+            action: CRUD_ACTIONS.CREATE
         }
     }
 
@@ -49,9 +47,24 @@ class ManageDoctor extends Component {
         });
     }
 
-    handleChange = selectedOption => {
+    handleChange = async selectedOption => {
         this.setState({ selectedOption });
-        console.log(`Option selected:`, this.state.selectedDoctor);
+        let res = await getDetailDoctor(selectedOption.value);
+        if (res && res.errCode === 0 && res.data && res.data.doctorData) {
+            this.setState({
+                contentMarkdown: res.data.doctorData.contentMarkdown,
+                contentHTML: res.data.doctorData.contentHTML,
+                description: res.data.doctorData.description,
+                action: CRUD_ACTIONS.EDIT,
+            });
+            console.log('change', this.state.hasChange);
+        } else {
+            this.setState({
+                contentMarkdown: '',
+                contentHTML: '',
+                description: '',
+            });
+        }
     }
 
     buildSelectOption = (listDoctors) => {
@@ -88,18 +101,25 @@ class ManageDoctor extends Component {
             doctorId: selectedOption.value,
             contentHTML: contentHTML,
             contentMarkdown: contentMarkdown,
-            description: description
+            description: description,
         }
-        this.props.saveDetailDoctor(data);
+        if (this.state.action === CRUD_ACTIONS.EDIT) {
+            this.props.updateDetailDoctor(data);
+        } else {
+            this.props.saveDetailDoctor(data);
+        }
+
         this.setState({
             contentMarkdown: '',
             contentHTML: '',
             selectedOption: null,
-            description: ''
+            description: '',
+            action: CRUD_ACTIONS.CREATE
         });
+
     }
     render() {
-        const { selectedOption, listDoctors } = this.state;
+        const { selectedOption, listDoctors, action } = this.state;
         return (
             <div className='manage-doctor-container'>
                 <div className='title'>THÊM THÔNG TIN DOCTORS</div>
@@ -128,11 +148,18 @@ class ManageDoctor extends Component {
                 <div className='manage-doctor-editer'>
                     <MdEditor
                         style={{ height: "500px" }}
-                        renderHTML={() => mdParser.render(this.state.contentMarkdown)}
-                        onChange={this.handleEditorChange} />
+                        renderHTML={(text) => mdParser.render(text)}
+                        onChange={this.handleEditorChange}
+                        value={this.state.contentMarkdown}
+                    />
                 </div>
-
-                <button className='save-content-doctor' onClick={() => this.handleOnClick()}><FormattedMessage id='manageuser.save'></FormattedMessage></button>
+                <button
+                    className={action === CRUD_ACTIONS.CREATE ? 'save-content-doctor' : 'change-content-doctor'} onClick={() => this.handleOnClick()}>
+                    {action === CRUD_ACTIONS.EDIT
+                        ? <span><FormattedMessage id='manageuser.save-change'></FormattedMessage></span>
+                        : <span><FormattedMessage id='manageuser.save'></FormattedMessage></span>
+                    }
+                </button>
             </div >
         );
     }
@@ -142,14 +169,15 @@ class ManageDoctor extends Component {
 const mapStateToProps = state => {
     return {
         language: state.app.language,
-        doctors: state.admin.doctors
+        doctors: state.admin.doctors,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         fetchAllDoctors: () => dispatch(action.fetchAllDoctorStart()),
-        saveDetailDoctor: (data) => dispatch(action.saveDetailDoctorStart(data))
+        saveDetailDoctor: (data) => dispatch(action.saveDetailDoctorStart(data)),
+        updateDetailDoctor: (data) => dispatch(action.updateInfoDoctor(data)),
     };
 };
 

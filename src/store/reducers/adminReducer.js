@@ -7,6 +7,7 @@ const initialState = {
     users: [],
     topDoctors: [],
     doctors: [],
+    detailDoctor: {},
     isLoadingUsers: false,
     emailExist: ''
 }
@@ -160,6 +161,34 @@ const appReducer = (state = initialState, action) => {
             return {
                 ...state
             }
+
+        //get detail doctor
+        case actionTypes.GET_DETAIL_DOCTOR_SUCCESS:
+            console.log('GET DETAIL DOCTOR SUCCESS', action)
+            state.detailDoctor = action.data;
+            return {
+                ...state
+            }
+        case actionTypes.GET_DETAIL_DOCTOR_FAIL:
+            console.log('GET DETAIL DOCTOR FAIL', action)
+            return {
+                ...state
+            }
+
+        //update detail doctor
+        case actionTypes.UPDATE_INFO_DOCTOR_SUCCESS:
+            console.log('UPDATE DETAIL DOCTOR SUCCESS', action)
+            toast.success('UPDATE DETAIL DOCTOR SUCCESS!');
+            return {
+                ...state
+            }
+        case actionTypes.UPDATE_INFO_DOCTOR_FAIL:
+            console.log('UPDATE DETAIL DOCTOR FAIL', action)
+            toast.error('UPDATE DETAIL DOCTOR FAIL!');
+            return {
+                ...state
+            }
+
         default:
             return state;
     }

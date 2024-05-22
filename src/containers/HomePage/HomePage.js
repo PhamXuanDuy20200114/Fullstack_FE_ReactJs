@@ -11,6 +11,7 @@ import MentalHealth from './Section/MentalHealth';
 import About from './Section/About';
 import HomeFooter from './HomeFooter';
 import './HomePage.scss';
+import Banner from './Banner';
 
 class HomePage extends Component {
 
@@ -18,7 +19,10 @@ class HomePage extends Component {
 
         return (
             <div className='home-container'>
-                <Header />
+                <div className='home-header'>
+                    <Header />
+                    <Banner />
+                </div>
                 <Service />
                 <Specialty />
                 <MedicalFacility />
