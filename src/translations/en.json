@@ -98,6 +98,12 @@
             "manage-clinic": "Manage clinic",
             "manage-specialty": "Manage specialty",
             "manage-hand-book": "Manage handbook"
+        },
+        "doctor": {
+            "schedule": "Manage schedule",
+            "appointment": "Manage appointment",
+            "doctor-schedule": "Manage doctor schedule",
+            "doctor-appointment": "Manage doctor appointment"
         }
     },
     "manageuser": {

@@ -95,6 +95,12 @@
             "manage-clinic": "Quản lý phòng khám",
             "manage-specialty": "Quản lý chuyên khoa",
             "manage-hand-book": "Quản lý Cẩm nang"
+        },
+        "doctor": {
+            "schedule": "Quản lý kế hoạch khám bệnh",
+            "appointment": "Quản lý lịch hẹn",
+            "doctor-schedule": "Quản lý lịch làm việc của bác sĩ",
+            "doctor-appointment": "Quản lý lịch hẹn của bác sĩ"
         }
     },
     "manageuser": {

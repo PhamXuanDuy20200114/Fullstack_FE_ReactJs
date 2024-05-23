@@ -28,17 +28,20 @@
             width: 80%;
             display: flex;
             flex-direction: column;
-            padding-left: 10px;
 
             .up {
                 font-size: 24px;
                 font-weight: 600;
-                margin: 5px 0;
+                margin: 10px 0 5px 0;
             }
 
             .down {
-                font-size: 16px;
-                font-weight: 500;
+                font-size: 15px;
+                color: #5A5A5A;
+
+                p {
+                    margin-bottom: 0;
+                }
             }
         }
     }

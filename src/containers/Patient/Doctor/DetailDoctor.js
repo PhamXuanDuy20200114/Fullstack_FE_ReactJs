@@ -33,6 +33,11 @@ class DetailDoctor extends React.Component {
         const doctor = this.state.doctor;
         let nameVi = doctor.positionData && doctor.positionData.valueVi + ', Bác sĩ' + ' ' + doctor.lastName + ' ' + doctor.firstName;
         let nameEn = doctor.positionData && doctor.positionData.valueEn + ' ' + doctor.firstName + ' ' + doctor.lastName;
+        let descriptions = [];
+        if (doctor && doctor.doctorData && doctor.doctorData.description) {
+            descriptions = doctor.doctorData.description.split(',');
+            console.log('descriptions', descriptions);
+        }
         return (
             <>
                 <Header />
@@ -47,7 +52,13 @@ class DetailDoctor extends React.Component {
                             </div>
 
                             <div className="down">
-                                {doctor.doctorData && doctor.doctorData.description}
+
+                                {descriptions && descriptions.map((item, index) => {
+                                    return (
+                                        <p>{item}</p>
+                                    )
+                                })}
+
                             </div>
                         </div>
                     </div>
