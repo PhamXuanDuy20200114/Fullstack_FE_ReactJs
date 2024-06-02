@@ -120,5 +120,20 @@
         "choose-image": "Chọn ảnh",
         "action": "Hành động",
         "save-change": "Lưu thay đổi"
+    },
+    "managedoctor": {
+        "add-new-info": "THÊM THÔNG TIN BÁC SĨ",
+        "choose-doctor": "Chọn bác sĩ:",
+        "add-intro-info": "Thêm thông tin giới thiệu:"
+    },
+    "manageschedule": {
+        "manage-schedule": "Quản lý lịch làm việc",
+        "add-new-schedule": "Thêm lịch làm việc mới",
+        "choose-doctor": "Chọn bác sĩ:",
+        "choose-clinic": "Chọn phòng khám:",
+        "choose-date": "Chọn ngày:",
+        "choose-time": "Chọn giờ:",
+        "choose-status": "Chọn trạng thái:",
+        "save": "Lưu"
     }
 }

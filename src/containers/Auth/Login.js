@@ -58,6 +58,13 @@ class Login extends Component {
         }
     }
 
+    handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            console.log('enter');
+            this.handleLogin();
+        }
+    }
+
     handleShowHidePassword = () => {
         this.setState({
             isShowPassword: !this.state.isShowPassword
@@ -79,7 +86,13 @@ class Login extends Component {
                         <div className='col-12 form-group login-input'>
                             <label>Password:</label>
                             <div className='custom-input-password'>
-                                <input type={this.state.isShowPassword ? 'text' : 'password'} className='form-control ' onChange={(event) => { this.handleOnChangePassword(event) }} value={this.state.password} placeholder='Enter your password' />
+                                <input type={this.state.isShowPassword ? 'text' : 'password'}
+                                    className='form-control '
+                                    onChange={(event) => { this.handleOnChangePassword(event) }}
+                                    value={this.state.password}
+                                    onKeyDown={(e) => this.handleKeyDown(e)}
+                                    placeholder='Enter your password'
+                                />
                                 <span onClick={() => this.handleShowHidePassword()}>
                                     <i className={this.state.isShowPassword ? "far fa-eye " : "far fa-eye-slash"} ></i>
                                 </span>
@@ -89,7 +102,7 @@ class Login extends Component {
                             {this.state.errMessage}
                         </div>
                         <div className='col-12 btn-login'>
-                            <button className='btn btn-primary' onClick={() => { this.handleLogin() }}>Login</button>
+                            <button className='btn btn-primary' onClick={() => { this.handleLogin() }} >Login</button>
                         </div>
                         <div className='col-12 forgot-password'>
                             <span> Forgot your password? </span>

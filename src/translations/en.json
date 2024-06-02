@@ -100,7 +100,7 @@
             "manage-hand-book": "Manage handbook"
         },
         "doctor": {
-            "schedule": "Manage schedule",
+            "schedule": "Manage doctor schedule",
             "appointment": "Manage appointment",
             "doctor-schedule": "Manage doctor schedule",
             "doctor-appointment": "Manage doctor appointment"
@@ -123,5 +123,20 @@
         "choose-image": "Upload",
         "action": "Action",
         "save-change": "Save change"
+    },
+    "managedoctor": {
+        "add-new-info": "ADD DOCTOR's INFORMATION",
+        "choose-doctor": "Choose doctor:",
+        "add-intro-info": "Add introduction information:"
+    },
+    "manageschedule": {
+        "manage-schedule": "Manage schedule",
+        "add-new-schedule": "Add new schedule",
+        "choose-doctor": "Choose doctor:",
+        "choose-clinic": "Choose clinic:",
+        "choose-date": "Choose date:",
+        "choose-time": "Choose time:",
+        "choose-status": "Choose status:",
+        "save": "Save"
     }
 }

@@ -122,11 +122,11 @@ class ManageDoctor extends Component {
         const { selectedOption, listDoctors, action } = this.state;
         return (
             <div className='manage-doctor-container'>
-                <div className='title'>THÊM THÔNG TIN DOCTORS</div>
+                <div className='title'><FormattedMessage id='managedoctor.add-new-info'></FormattedMessage></div>
 
                 <div className='more-info form-group'>
                     <div className='content-left'>
-                        <label>Chọn bác sĩ:</label>
+                        <label><FormattedMessage id='managedoctor.choose-doctor'></FormattedMessage></label>
                         <Select
                             value={selectedOption}
                             onChange={this.handleChange}
@@ -135,7 +135,7 @@ class ManageDoctor extends Component {
 
                     </div>
                     <div className='content-right'>
-                        <label >Thêm thông tin giới thiệu:</label>
+                        <label ><FormattedMessage id='managedoctor.add-intro-info'></FormattedMessage></label>
                         <textarea className='form-control'
                             rows={4}
                             value={this.state.description}

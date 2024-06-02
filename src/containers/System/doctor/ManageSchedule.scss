@@ -1,0 +1,43 @@
+.manage-schedule-container {
+    .title {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .pick-hour-container {
+        width: 100%;
+        display: flex;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        .choose-time {
+            width: fit-content;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid gray;
+            cursor: pointer;
+
+            &.active {
+                background-color: orange;
+                color: white;
+                border: 1px solid white;
+            }
+        }
+
+
+    }
+
+    .save-btn {
+        width: 100px;
+        margin-left: 10px;
+        background-color: #0071BA;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+}

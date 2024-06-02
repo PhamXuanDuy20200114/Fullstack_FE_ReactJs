@@ -9,7 +9,8 @@ const initialState = {
     doctors: [],
     detailDoctor: {},
     isLoadingUsers: false,
-    emailExist: ''
+    emailExist: '',
+    scheduleTime: [],
 }
 
 const appReducer = (state = initialState, action) => {
@@ -185,6 +186,33 @@ const appReducer = (state = initialState, action) => {
         case actionTypes.UPDATE_INFO_DOCTOR_FAIL:
             console.log('UPDATE DETAIL DOCTOR FAIL', action)
             toast.error('UPDATE DETAIL DOCTOR FAIL!');
+            return {
+                ...state
+            }
+
+        //fetch all code hours
+        case actionTypes.FETCH_ALLCODE_HOURS_SUCCESS:
+            console.log('FETCH ALL CODE HOURS SUCCESS', action)
+            state.scheduleTime = action.data;
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALLCODE_HOURS_FAIL:
+            console.log('FETCH ALL CODE HOURS FAIL', action)
+            return {
+                ...state
+            }
+
+        //save schedule doctor
+        case actionTypes.SAVE_SCHEDULE_DOCTOR_SUCCESS:
+            console.log('SAVE SCHEDULE DOCTOR SUCCESS', action)
+            toast.success('SAVE SCHEDULE DOCTOR SUCCESS!');
+            return {
+                ...state
+            }
+        case actionTypes.SAVE_SCHEDULE_DOCTOR_FAIL:
+            console.log('SAVE SCHEDULE DOCTOR FAIL', action)
+            toast.error('SAVE SCHEDULE DOCTOR FAIL!');
             return {
                 ...state
             }

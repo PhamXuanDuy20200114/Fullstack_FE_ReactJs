@@ -1,6 +1,6 @@
 import actionTypes from './actionTypes';
 import { getAllCode, createNewUser, getAllUsers, deleteUserService, updateUserService } from '../../services/userService';
-import { getTopDoctor, getAllDoctors, createDetailDoctor, getDetailDoctor, updateDetailDoctor } from '../../services/doctorService';
+import { getTopDoctor, getAllDoctors, createDetailDoctor, getDetailDoctor, updateDetailDoctor, saveScheduleDoctor } from '../../services/doctorService';
 
 //start doing end
 
@@ -349,5 +349,59 @@ export const updateInfoDoctorSuccess = () => ({
 
 export const updateInfoDoctorFail = () => ({
     type: actionTypes.UPDATE_INFO_DOCTOR_FAIL,
+})
+
+
+//fetch all code hours
+export const fetchAllCodeHours = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCode('TIME');
+            if (res && res.errCode === 0) {
+                dispatch(fetchAllCodeHoursSuccess(res.data));
+            } else {
+                dispatch(fetchAllCodeHoursFail())
+            }
+        }
+        catch (e) {
+            dispatch(fetchAllCodeHoursFail());
+            console.log('fetch create user start err: ', e);
+        }
+    }
+}
+
+export const fetchAllCodeHoursSuccess = (data) => ({
+    type: actionTypes.FETCH_ALLCODE_HOURS_SUCCESS,
+    data
+})
+
+export const fetchAllCodeHoursFail = () => ({
+    type: actionTypes.FETCH_ALLCODE_HOURS_FAIL,
+})
+
+//save schedule doctor
+export const saveScheduleDoctorStart = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await saveScheduleDoctor(data);
+            if (res && res.errCode === 0) {
+                dispatch(saveScheduleDoctorSuccess());
+            } else {
+                dispatch(saveScheduleDoctorFail())
+            }
+        }
+        catch (e) {
+            dispatch(saveScheduleDoctorFail());
+            console.log('fetch create user start err: ', e);
+        }
+    }
+}
+
+export const saveScheduleDoctorSuccess = () => ({
+    type: actionTypes.SAVE_SCHEDULE_DOCTOR_SUCCESS,
+})
+
+export const saveScheduleDoctorFail = () => ({
+    type: actionTypes.SAVE_SCHEDULE_DOCTOR_FAIL,
 })
 
