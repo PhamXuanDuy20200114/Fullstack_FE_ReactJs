@@ -109,7 +109,7 @@ class ManageSchedule extends Component {
             chooseTime.map(item => {
                 result.push({
                     doctorId: selectedOption.value,
-                    date: moment(currentDate).format('DD/MM/YYYY'),
+                    date: moment(currentDate).valueOf(),
                     timeType: item.keyMap
                 });
             });

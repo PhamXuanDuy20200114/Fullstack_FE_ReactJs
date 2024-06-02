@@ -21,11 +21,16 @@ const updateDetailDoctor = async (data) => {
 const saveScheduleDoctor = async (data) => {
     return await axios.post('/api/bulk-create-schedule', data);
 }
+
+const getScheduleDoctorByDate = async (doctorId, date) => {
+    return await axios.get(`/api/get-schedule-doctor-by-date?doctorId=${doctorId}&date=${date}`);
+}
 export {
     getTopDoctor,
     getAllDoctors,
     createDetailDoctor,
     getDetailDoctor,
     updateDetailDoctor,
-    saveScheduleDoctor
+    saveScheduleDoctor,
+    getScheduleDoctorByDate
 }

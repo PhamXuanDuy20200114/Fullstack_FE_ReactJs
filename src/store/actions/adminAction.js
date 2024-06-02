@@ -1,6 +1,10 @@
 import actionTypes from './actionTypes';
 import { getAllCode, createNewUser, getAllUsers, deleteUserService, updateUserService } from '../../services/userService';
-import { getTopDoctor, getAllDoctors, createDetailDoctor, getDetailDoctor, updateDetailDoctor, saveScheduleDoctor } from '../../services/doctorService';
+import {
+    getTopDoctor, getAllDoctors, createDetailDoctor,
+    getDetailDoctor, updateDetailDoctor, saveScheduleDoctor,
+    getScheduleDoctorByDate
+} from '../../services/doctorService';
 
 //start doing end
 
@@ -403,5 +407,32 @@ export const saveScheduleDoctorSuccess = () => ({
 
 export const saveScheduleDoctorFail = () => ({
     type: actionTypes.SAVE_SCHEDULE_DOCTOR_FAIL,
+})
+
+//fetch schedule doctor
+export const fetchScheduleDoctor = (doctorId, date) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getScheduleDoctorByDate(doctorId, date);
+            if (res && res.errCode === 0) {
+                dispatch(fetchScheduleDoctorSuccess(res.data));
+            } else {
+                dispatch(fetchScheduleDoctorFail())
+            }
+        }
+        catch (e) {
+            dispatch(fetchScheduleDoctorFail());
+            console.log('fetch create user start err: ', e);
+        }
+    }
+}
+
+export const fetchScheduleDoctorSuccess = (data) => ({
+    type: actionTypes.FETCH_SCHEDULE_DOCTOR_SUCCESS,
+    data
+})
+
+export const fetchScheduleDoctorFail = () => ({
+    type: actionTypes.FETCH_SCHEDULE_DOCTOR_FAIL,
 })
 

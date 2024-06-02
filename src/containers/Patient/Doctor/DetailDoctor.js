@@ -7,6 +7,7 @@ import Header from "../../HomePage/Header";
 
 import "./DoctorDetail.scss";
 import { get } from "lodash";
+import DoctorSchedule from "./DoctorSchedule";
 
 class DetailDoctor extends React.Component {
     constructor(props) {
@@ -36,7 +37,6 @@ class DetailDoctor extends React.Component {
         let descriptions = [];
         if (doctor && doctor.doctorData && doctor.doctorData.description) {
             descriptions = doctor.doctorData.description.split(',');
-            console.log('descriptions', descriptions);
         }
         return (
             <>
@@ -58,13 +58,21 @@ class DetailDoctor extends React.Component {
                                         <p>{item}</p>
                                     )
                                 })}
-
+                            </div>
+                            <div className="social">
+                                <div className="like"><i class="fas fa-thumbs-up"></i><FormattedMessage id='doctordetail.like'></FormattedMessage></div>
+                                <div className="share"><FormattedMessage id='doctordetail.share'></FormattedMessage></div>
                             </div>
                         </div>
                     </div>
 
                     <div className="schedule-doctor">
+                        <div className="content-left">
+                            <DoctorSchedule doctorId={doctor && doctor.id ? doctor.id : -1} />
+                        </div>
+                        <div className="content-right">
 
+                        </div>
                     </div>
 
                     <div className="detail-info-doctor">

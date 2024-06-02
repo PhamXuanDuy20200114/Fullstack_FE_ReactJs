@@ -138,5 +138,12 @@
         "choose-time": "Choose time:",
         "choose-status": "Choose status:",
         "save": "Save"
+    },
+    "doctordetail": {
+        "schedule": "Schedule",
+        "like": "Like",
+        "comment": "Comment",
+        "share": "Share",
+        "address": "Address"
     }
 }

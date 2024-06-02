@@ -135,5 +135,12 @@
         "choose-time": "Chọn giờ:",
         "choose-status": "Chọn trạng thái:",
         "save": "Lưu"
+    },
+    "doctordetail": {
+        "schedule": "Lịch khám",
+        "like": "Thích",
+        "comment": "Bình luận",
+        "share": "Chia sẻ",
+        "address": "Địa chỉ"
     }
 }
