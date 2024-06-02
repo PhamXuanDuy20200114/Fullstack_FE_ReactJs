@@ -140,10 +140,12 @@
         "save": "Save"
     },
     "doctordetail": {
-        "schedule": "Schedule",
+        "schedule": "SCHEDULE",
         "like": "Like",
         "comment": "Comment",
         "share": "Share",
-        "address": "Address"
+        "address": "ADDRESS: ",
+        "price": "PRICE: ",
+        "insurance": "TYPE OF INSURANCE APPLICABLE: "
     }
 }

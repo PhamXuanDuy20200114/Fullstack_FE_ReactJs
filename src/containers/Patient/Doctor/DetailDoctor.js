@@ -71,6 +71,18 @@ class DetailDoctor extends React.Component {
                             <DoctorSchedule doctorId={doctor && doctor.id ? doctor.id : -1} />
                         </div>
                         <div className="content-right">
+                            <div className="address">
+                                <FormattedMessage id='doctordetail.address'></FormattedMessage>
+                                <div className="hospital">Bệnh Viện Bạch Mai</div>
+                                <div className="hospital-address">Số 123 Bạch Mai - Hai Bà Trưng - Hà Nội</div>
+                            </div>
+                            <div className="price">
+                                <FormattedMessage id='doctordetail.price'></FormattedMessage>
+                                <span>500.000 VND</span>
+                            </div>
+                            <div className="insurance">
+                                <FormattedMessage id='doctordetail.insurance'></FormattedMessage>
+                            </div>
 
                         </div>
                     </div>

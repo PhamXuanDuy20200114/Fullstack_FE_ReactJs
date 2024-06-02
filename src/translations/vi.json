@@ -137,10 +137,12 @@
         "save": "Lưu"
     },
     "doctordetail": {
-        "schedule": "Lịch khám",
+        "schedule": "LỊCH KHÁM",
         "like": "Thích",
         "comment": "Bình luận",
         "share": "Chia sẻ",
-        "address": "Địa chỉ"
+        "address": "ĐỊA CHỈ KHÁM: ",
+        "price": "GIÁ KHÁM: ",
+        "insurance": "LOẠI BẢO HIỂM ÁP DỤNG: "
     }
 }

@@ -26,7 +26,7 @@ class DoctorSchedule extends React.Component {
             this.setArrDays();
         }
         if (prevProps.allAvailableTime !== this.props.allAvailableTime) {
-            this.setState({ allAvailableTime: this.props.allAvailableTime });
+            this.setState({ allAvailableTime: this.props.allAvailableTime ? this.props.allAvailableTime : [] });
         }
     }
 
@@ -36,6 +36,7 @@ class DoctorSchedule extends React.Component {
             let obj = {};
             if (this.props.language === languages.VI) {
                 obj.label = moment(new Date()).add(i, 'days').format('dddd - DD/MM');
+                obj.label = obj.label.charAt(0).toUpperCase() + obj.label.slice(1);
             } else {
                 obj.label = moment(new Date()).add(i, 'days').locale('en').format('ddd - DD/MM');
             }
@@ -52,21 +53,26 @@ class DoctorSchedule extends React.Component {
 
     render() {
         const { allDays, allAvailableTime } = this.state;
+        console.log('allAvailableTime', allAvailableTime);
         return (
             <div className="schedule-container">
                 <div className="all-schedule">
-                    <select onChange={(e) => this.handleOnChangeDate(e)}>
+                    <select className='selected-day' onChange={(e) => this.handleOnChangeDate(e)}>
                         {allDays && allDays.length > 0 && allDays.map((item, index) => {
                             return (
                                 <option value={item.value}>{item.label}</option>
                             )
                         })}
                     </select>
+                    <div className="title-schedule">
+                        <i class="far fa-calendar"></i>
+                        <FormattedMessage id='doctordetail.schedule'></FormattedMessage>
+                    </div>
                     <div className="time">
                         {allAvailableTime && allAvailableTime.length > 0 && allAvailableTime.map((item, index) => {
                             return (
                                 <div className="time-item">
-                                    <div className="time-start">{item.timeType}</div>
+                                    {this.props.language === languages.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn}
                                 </div>
                             )
                         })}
