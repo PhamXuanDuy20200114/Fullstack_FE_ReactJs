@@ -10,6 +10,7 @@
             border-bottom: 1px solid gray;
             font-size: 16px;
             color: #4585BD;
+            margin-left: -10px;
 
             &:hover {
                 background-color: #f0f0f0;
@@ -20,7 +21,7 @@
             font-size: 16px;
             font-weight: 600;
             color: #000;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: flex;
             gap: 10px;
             align-items: center;
@@ -28,6 +29,7 @@
 
         .time {
             width: 100%;
+            height: 100px;
             display: flex;
             display: flex;
             flex-wrap: wrap;
@@ -35,6 +37,7 @@
 
             .time-item {
                 background-color: #EEEEEE;
+                height: fit-content;
                 width: fit-content;
                 padding: 10px 15px;
                 border-radius: 5px;
@@ -44,6 +47,26 @@
                 &:hover {
                     background-color: #CCCCCC;
                 }
+            }
+
+            .no-schedule {
+                font-size: 16px;
+                margin-bottom: 10px;
+                color: #000;
+            }
+
+        }
+
+        .more {
+            height: 40px;
+            font-size: 14px;
+            margin-top: 10px;
+            color: #6E6E6E;
+            cursor: pointer;
+            margin-top: 10px;
+
+            i {
+                color: #4585BD;
             }
         }
 

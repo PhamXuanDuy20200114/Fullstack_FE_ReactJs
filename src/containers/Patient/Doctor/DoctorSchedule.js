@@ -18,32 +18,51 @@ class DoctorSchedule extends React.Component {
     }
 
     componentDidMount() {
-        this.setArrDays();
+        let allDays = this.getArrDays();
+        this.setState({ allDays });
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.language !== this.props.language) {
-            this.setArrDays();
+            let allDays = this.getArrDays();
+            this.setState({ allDays });
         }
         if (prevProps.allAvailableTime !== this.props.allAvailableTime) {
             this.setState({ allAvailableTime: this.props.allAvailableTime ? this.props.allAvailableTime : [] });
         }
+
+        if (this.props.doctorId !== prevProps.doctorId) {
+            let allDays = this.getArrDays();
+            if (allDays && allDays.length > 0) {
+                this.props.getScheduleByDate(this.props.doctorId, allDays[0].value);
+            }
+        }
     }
 
-    setArrDays = () => {
+    getArrDays = () => {
         let arrDate = [];
         for (let i = 0; i < 7; i++) {
             let obj = {};
             if (this.props.language === languages.VI) {
-                obj.label = moment(new Date()).add(i, 'days').format('dddd - DD/MM');
-                obj.label = obj.label.charAt(0).toUpperCase() + obj.label.slice(1);
+                if (i === 0) {
+                    let ddMM = moment(new Date()).format('DD/MM');
+                    obj.label = 'Hôm nay - ' + ddMM;
+                } else {
+                    obj.label = moment(new Date()).add(i, 'days').format('dddd - DD/MM');
+                    obj.label = obj.label.charAt(0).toUpperCase() + obj.label.slice(1);
+                }
             } else {
-                obj.label = moment(new Date()).add(i, 'days').locale('en').format('ddd - DD/MM');
+                if (i === 0) {
+                    let ddMM = moment(new Date()).format('DD/MM');
+                    obj.label = 'Today - ' + ddMM;
+                } else {
+                    obj.label = moment(new Date()).add(i, 'days').locale('en').format('ddd - DD/MM');
+                }
             }
             obj.value = moment().add(i, 'days').startOf('day').valueOf();
             arrDate.push(obj);
         }
-        this.setState({ allDays: arrDate });
+        return arrDate;
     }
 
     handleOnChangeDate = (e) => {
@@ -53,7 +72,6 @@ class DoctorSchedule extends React.Component {
 
     render() {
         const { allDays, allAvailableTime } = this.state;
-        console.log('allAvailableTime', allAvailableTime);
         return (
             <div className="schedule-container">
                 <div className="all-schedule">
@@ -76,6 +94,16 @@ class DoctorSchedule extends React.Component {
                                 </div>
                             )
                         })}
+                        {
+                            allAvailableTime.length === 0 &&
+                            <div className="no-schedule">
+                                <FormattedMessage id='doctordetail.no-schedule'></FormattedMessage>
+                            </div>
+                        }
+
+                    </div>
+                    <div className="more">
+                        <FormattedMessage id='doctordetail.choose'></FormattedMessage> <i class="fas fa-hand-pointer"></i> <FormattedMessage id='doctordetail.booking'></FormattedMessage>
                     </div>
                 </div>
                 <div className="all-available-time">

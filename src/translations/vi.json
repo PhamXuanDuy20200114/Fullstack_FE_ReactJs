@@ -123,8 +123,14 @@
     },
     "managedoctor": {
         "add-new-info": "THÊM THÔNG TIN BÁC SĨ",
-        "choose-doctor": "Chọn bác sĩ:",
-        "add-intro-info": "Thêm thông tin giới thiệu:"
+        "doctor": "Bác sĩ:",
+        "add-intro-info": "Thêm thông tin giới thiệu:",
+        "price": "Giá khám:",
+        "province": "Tỉnh thành:",
+        "clinic-name": "Tên phòng khám:",
+        "clinic-address": "Địa chỉ phòng khám:",
+        "payment": "Phương thức thanh toán:",
+        "note": "Ghi chú:"
     },
     "manageschedule": {
         "manage-schedule": "Quản lý lịch làm việc",
@@ -143,6 +149,9 @@
         "share": "Chia sẻ",
         "address": "ĐỊA CHỈ KHÁM: ",
         "price": "GIÁ KHÁM: ",
-        "insurance": "LOẠI BẢO HIỂM ÁP DỤNG: "
+        "insurance": "LOẠI BẢO HIỂM ÁP DỤNG: ",
+        "no-schedule": "Bác sĩ chưa có lịch khám",
+        "choose": "Chọn",
+        "booking": " và đặt (Phí đặt lịch 0đ)"
     }
 }

@@ -123,6 +123,7 @@ class ManageSchedule extends Component {
 
     render() {
         const { listDoctors, selectedOption, currentDate, listHours, chooseTime } = this.state;
+        const date = new Date();
         return (
             <div className='manage-schedule-container'>
                 <div className='title'>
@@ -140,7 +141,12 @@ class ManageSchedule extends Component {
                         </div>
                         <div className='col-6 form-group'>
                             <label><FormattedMessage id='manageschedule.choose-date' /></label>
-                            <div><DatePicker onChange={(currentDate) => this.selectDate(currentDate)} className='form-control' value={currentDate} minDate={new Date()} /></div>
+                            <div>
+                                <DatePicker
+                                    onChange={(currentDate) => this.selectDate(currentDate)}
+                                    className='form-control'
+                                    value={currentDate} minDate={date.setDate(date.getDate() - 1)} />
+                            </div>
                         </div>
                         <div className='col-12 form-group pick-hour-container'>
                             {listHours && listHours.length > 0 &&

@@ -50,4 +50,18 @@
             width: 60%;
         }
     }
+
+    .doctor-info-edit {
+        display: flex;
+        margin: 10px 5px;
+        flex-wrap: wrap;
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+    }
+
+    button {
+        margin: 20px 10px;
+    }
 }

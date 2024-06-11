@@ -436,3 +436,88 @@ export const fetchScheduleDoctorFail = () => ({
     type: actionTypes.FETCH_SCHEDULE_DOCTOR_FAIL,
 })
 
+
+
+//fetch all price
+export const fetchAllPrice = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCode('PRICE');
+            if (res && res.errCode === 0) {
+                dispatch(fetchAllPriceSuccess(res.data));
+            } else {
+                dispatch(fetchAllPriceFail())
+            }
+        }
+        catch (e) {
+            dispatch(fetchAllPriceFail());
+            console.log('fetch create user start err: ', e);
+        }
+    }
+}
+
+export const fetchAllPriceSuccess = (data) => ({
+    type: actionTypes.FETCH_ALL_PRICE_SUCCESS,
+    data
+})
+
+export const fetchAllPriceFail = () => ({
+    type: actionTypes.FETCH_ALL_PRICE_FAIL,
+})
+
+//fetch all province
+
+export const fetchAllProvince = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCode('PROVINCE');
+            if (res && res.errCode === 0) {
+                dispatch(fetchAllProvinceSuccess(res.data));
+            } else {
+                dispatch(fetchAllProvinceFail())
+            }
+        }
+        catch (e) {
+            dispatch(fetchAllProvinceFail());
+            console.log('fetch create user start err: ', e);
+        }
+    }
+}
+
+export const fetchAllProvinceSuccess = (data) => ({
+    type: actionTypes.FETCH_ALL_PROVINCE_SUCCESS,
+    data
+})
+
+export const fetchAllProvinceFail = () => ({
+    type: actionTypes.FETCH_ALL_PROVINCE_FAIL,
+})
+
+//fetch all payment
+
+export const fetchAllPayment = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCode('PAYMENT');
+            if (res && res.errCode === 0) {
+                dispatch(fetchAllPaymentSuccess(res.data));
+            } else {
+                dispatch(fetchAllPaymentFail())
+            }
+        }
+        catch (e) {
+            dispatch(fetchAllPaymentFail());
+            console.log('fetch create user start err: ', e);
+        }
+    }
+}
+
+export const fetchAllPaymentSuccess = (data) => ({
+    type: actionTypes.FETCH_ALL_PAYMENT_SUCCESS,
+    data
+})
+
+export const fetchAllPaymentFail = () => ({
+    type: actionTypes.FETCH_ALL_PAYMENT_FAIL,
+})
+

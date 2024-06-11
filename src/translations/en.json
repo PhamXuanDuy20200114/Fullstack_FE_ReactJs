@@ -127,12 +127,18 @@
     "managedoctor": {
         "add-new-info": "ADD DOCTOR's INFORMATION",
         "choose-doctor": "Choose doctor:",
-        "add-intro-info": "Add introduction information:"
+        "add-intro-info": "Add introduction information:",
+        "price": "Price:",
+        "province": "Province:",
+        "clinic-name": "Clinic name:",
+        "clinic-address": "Clinic address:",
+        "payment": "Payment:",
+        "note": "Note:"
     },
     "manageschedule": {
         "manage-schedule": "Manage schedule",
         "add-new-schedule": "Add new schedule",
-        "choose-doctor": "Choose doctor:",
+        "doctor": "Doctor:",
         "choose-clinic": "Choose clinic:",
         "choose-date": "Choose date:",
         "choose-time": "Choose time:",
@@ -146,6 +152,9 @@
         "share": "Share",
         "address": "ADDRESS: ",
         "price": "PRICE: ",
-        "insurance": "TYPE OF INSURANCE APPLICABLE: "
+        "insurance": "TYPE OF INSURANCE APPLICABLE: ",
+        "no-schedule": "No schedule available",
+        "choose": "Choose",
+        "booking": "and booking (free)"
     }
 }

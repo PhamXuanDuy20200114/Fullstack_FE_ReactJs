@@ -5,13 +5,18 @@ const initialState = {
     roles: [],
     positions: [],
     users: [],
+
     topDoctors: [],
     doctors: [],
     detailDoctor: {},
-    isLoadingUsers: false,
+
     emailExist: '',
     scheduleTime: [],
-    doctorsScheduleTime: []
+    doctorsScheduleTime: [],
+
+    prices: [],
+    provinces: [],
+    payments: [],
 }
 
 const appReducer = (state = initialState, action) => {
@@ -205,6 +210,39 @@ const appReducer = (state = initialState, action) => {
                 ...state
             }
         case actionTypes.FETCH_SCHEDULE_DOCTOR_FAIL:
+            return {
+                ...state
+            }
+
+        //fetch all price
+        case actionTypes.FETCH_ALL_PRICE_SUCCESS:
+            state.prices = action.data;
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALL_PRICE_FAIL:
+            return {
+                ...state
+            }
+
+        //fetch all province
+        case actionTypes.FETCH_ALL_PROVINCE_SUCCESS:
+            state.provinces = action.data;
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALL_PROVINCE_FAIL:
+            return {
+                ...state
+            }
+
+        //fetch all payment
+        case actionTypes.FETCH_ALL_PAYMENT_SUCCESS:
+            state.payments = action.data;
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALL_PAYMENT_FAIL:
             return {
                 ...state
             }

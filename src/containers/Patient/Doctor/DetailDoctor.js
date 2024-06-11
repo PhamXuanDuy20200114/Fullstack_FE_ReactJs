@@ -14,12 +14,15 @@ class DetailDoctor extends React.Component {
         super(props);
         this.state = {
             doctor: {},
+            currentDoctorId: ''
         }
     }
 
     componentDidMount() {
         if (this.props.match && this.props.match.params && this.props.match.params.id) {
-            this.props.fetchDetailDoctor(this.props.match.params.id);
+            let id = this.props.match.params.id;
+            this.setState({ currentDoctorId: id });
+            this.props.fetchDetailDoctor(id);
         }
     }
 
@@ -32,6 +35,7 @@ class DetailDoctor extends React.Component {
     render() {
         console.log('doctor', this.state.doctor);
         const doctor = this.state.doctor;
+        const currentDoctorId = this.state.currentDoctorId;
         let nameVi = doctor.positionData && doctor.positionData.valueVi + ', Bác sĩ' + ' ' + doctor.lastName + ' ' + doctor.firstName;
         let nameEn = doctor.positionData && doctor.positionData.valueEn + ' ' + doctor.firstName + ' ' + doctor.lastName;
         let descriptions = [];
@@ -68,17 +72,17 @@ class DetailDoctor extends React.Component {
 
                     <div className="schedule-doctor">
                         <div className="content-left">
-                            <DoctorSchedule doctorId={doctor && doctor.id ? doctor.id : -1} />
+                            <DoctorSchedule doctorId={currentDoctorId} />
                         </div>
                         <div className="content-right">
                             <div className="address">
                                 <FormattedMessage id='doctordetail.address'></FormattedMessage>
-                                <div className="hospital">Bệnh Viện Bạch Mai</div>
-                                <div className="hospital-address">Số 123 Bạch Mai - Hai Bà Trưng - Hà Nội</div>
+                                <div className="hospital">{doctor.doctorInfoData.clinicName}</div>
+                                <div className="hospital-address">{doctor.doctorInfoData.addressClinic}</div>
                             </div>
                             <div className="price">
                                 <FormattedMessage id='doctordetail.price'></FormattedMessage>
-                                <span>500.000 VND</span>
+                                <span>{doctor.doctorInfoData.priceId}</span>
                             </div>
                             <div className="insurance">
                                 <FormattedMessage id='doctordetail.insurance'></FormattedMessage>
