@@ -126,12 +126,12 @@
     },
     "managedoctor": {
         "add-new-info": "ADD DOCTOR's INFORMATION",
-        "choose-doctor": "Choose doctor:",
-        "add-intro-info": "Add introduction information:",
+        "doctor": "Doctor:",
+        "add-intro-info": "Introduction information:",
         "price": "Price:",
         "province": "Province:",
-        "clinic-name": "Clinic name:",
-        "clinic-address": "Clinic address:",
+        "clinic-name": "Clinic's name:",
+        "clinic-address": "Clinic's address:",
         "payment": "Payment:",
         "note": "Note:"
     },
@@ -155,6 +155,9 @@
         "insurance": "TYPE OF INSURANCE APPLICABLE: ",
         "no-schedule": "No schedule available",
         "choose": "Choose",
-        "booking": "and booking (free)"
+        "booking": "and booking (free)",
+        "more-info": "More information",
+        "close": "Close",
+        "payment": "Customers can pay with "
     }
 }

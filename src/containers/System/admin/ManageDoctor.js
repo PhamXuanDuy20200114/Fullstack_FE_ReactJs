@@ -6,7 +6,7 @@ import * as action from '../../../store/actions/adminAction';
 import MarkdownIt from 'markdown-it'
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
-import { getDetailDoctor } from '../../../services/doctorService';
+import { getDetailDoctor, getExtraInfoDoctor } from '../../../services/doctorService';
 
 import Select from 'react-select'
 
@@ -79,40 +79,33 @@ class ManageDoctor extends Component {
     handleChangeDoctor = async selectedDoctor => {
         this.setState({ selectedDoctor });
         let res = await getDetailDoctor(selectedDoctor.value);
-        if (res && res.errCode === 0 && res.data) {
-            if (res.data.doctorData) {
-                this.setState({
-                    contentMarkdown: res.data.doctorData.contentMarkdown,
-                    contentHTML: res.data.doctorData.contentHTML,
-                    description: res.data.doctorData.description,
-                    action: CRUD_ACTIONS.EDIT,
-                });
-            }
-            if (res.data.doctorInfoData) {
-                let selectedPrice = this.state.listPrices.find(item => item.value === res.data.doctorInfoData.priceId);
-                let selectedProvince = this.state.listProvinces.find(item => item.value === res.data.doctorInfoData.provinceId);
-                let selectedPayment = this.state.listPayments.find(item => item.value === res.data.doctorInfoData.paymentId);
-                this.setState({
-                    selectedPrice: selectedPrice,
-                    selectedProvince: selectedProvince,
-                    selectedPayment: selectedPayment,
-                    clinicName: res.data.doctorInfoData.clinicName,
-                    addressClinic: res.data.doctorInfoData.addressClinic,
-                    note: res.data.doctorInfoData.note,
-                })
-            }
+        let resExtra = await getExtraInfoDoctor(selectedDoctor.value);
+        if (res && res.errCode === 0 && res.data && res.data.doctorData) {
+            this.setState({
+                contentMarkdown: res.data.doctorData.contentMarkdown,
+                contentHTML: res.data.doctorData.contentHTML,
+                description: res.data.doctorData.description,
+                action: CRUD_ACTIONS.EDIT,
+            });
         } else {
             this.setState({
                 contentMarkdown: '',
                 contentHTML: '',
                 description: '',
-                selectedPrice: null,
-                selectedProvince: null,
-                selectedPayment: null,
-                clinicName: '',
-                addressClinic: '',
-                note: '',
             });
+        }
+        if (resExtra && resExtra.errCode === 0 && resExtra.data) {
+            let selectedPrice = this.props.language === languages.EN ? { value: resExtra.data.priceId, label: resExtra.data.priceData.valueEn + '$' } : { value: resExtra.data.priceId, label: resExtra.data.priceData.valueVi + ' VND' };
+            let selectedProvince = this.props.language === languages.EN ? { value: resExtra.data.provinceId, label: resExtra.data.provinceData.valueEn } : { value: resExtra.data.provinceId, label: resExtra.data.provinceData.valueVi };
+            let selectedPayment = this.props.language === languages.EN ? { value: resExtra.data.paymentId, label: resExtra.data.paymentData.valueEn } : { value: resExtra.data.paymentId, label: resExtra.data.paymentData.valueVi };
+            this.setState({
+                selectedPrice: selectedPrice,
+                selectedProvince: selectedProvince,
+                selectedPayment: selectedPayment,
+                clinicName: resExtra.data.clinicName,
+                addressClinic: resExtra.data.addressClinic,
+                note: resExtra.data.note,
+            })
         }
     }
 

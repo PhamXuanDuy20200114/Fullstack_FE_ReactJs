@@ -17,6 +17,8 @@ const initialState = {
     prices: [],
     provinces: [],
     payments: [],
+
+    extraInfoDoctor: {},
 }
 
 const appReducer = (state = initialState, action) => {
@@ -243,6 +245,18 @@ const appReducer = (state = initialState, action) => {
                 ...state
             }
         case actionTypes.FETCH_ALL_PAYMENT_FAIL:
+            return {
+                ...state
+            }
+
+        //fetch extra info doctor
+        case actionTypes.FETCH_EXTRA_INFO_DOCTOR_SUCCESS:
+            state.extraInfoDoctor = action.data;
+            return {
+                ...state
+            }
+
+        case actionTypes.FETCH_EXTRA_INFO_DOCTOR_FAIL:
             return {
                 ...state
             }

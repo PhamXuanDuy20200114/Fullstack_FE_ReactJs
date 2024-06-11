@@ -8,13 +8,16 @@ import Header from "../../HomePage/Header";
 import "./DoctorDetail.scss";
 import { get } from "lodash";
 import DoctorSchedule from "./DoctorSchedule";
+import ExtraDoctorInfor from "./ExtraDoctorInfor";
 
 class DetailDoctor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             doctor: {},
-            currentDoctorId: ''
+            currentDoctorId: '',
+            extraInfoDoctor: {},
+            show: false,
         }
     }
 
@@ -33,15 +36,17 @@ class DetailDoctor extends React.Component {
     }
 
     render() {
-        console.log('doctor', this.state.doctor);
-        const doctor = this.state.doctor;
-        const currentDoctorId = this.state.currentDoctorId;
+        const { doctor, currentDoctorId } = this.state;
+        let descriptions = [];
+
         let nameVi = doctor.positionData && doctor.positionData.valueVi + ', Bác sĩ' + ' ' + doctor.lastName + ' ' + doctor.firstName;
         let nameEn = doctor.positionData && doctor.positionData.valueEn + ' ' + doctor.firstName + ' ' + doctor.lastName;
-        let descriptions = [];
+
         if (doctor && doctor.doctorData && doctor.doctorData.description) {
             descriptions = doctor.doctorData.description.split(',');
         }
+
+
         return (
             <>
                 <Header />
@@ -63,6 +68,10 @@ class DetailDoctor extends React.Component {
                                     )
                                 })}
                             </div>
+                            {/* <div className="province">
+                                <i class="fas fa-map-marker-alt"></i>
+                                {province}
+                            </div> */}
                             <div className="social">
                                 <div className="like"><i class="fas fa-thumbs-up"></i><FormattedMessage id='doctordetail.like'></FormattedMessage></div>
                                 <div className="share"><FormattedMessage id='doctordetail.share'></FormattedMessage></div>
@@ -75,19 +84,7 @@ class DetailDoctor extends React.Component {
                             <DoctorSchedule doctorId={currentDoctorId} />
                         </div>
                         <div className="content-right">
-                            <div className="address">
-                                <FormattedMessage id='doctordetail.address'></FormattedMessage>
-                                <div className="hospital">{doctor.doctorInfoData.clinicName}</div>
-                                <div className="hospital-address">{doctor.doctorInfoData.addressClinic}</div>
-                            </div>
-                            <div className="price">
-                                <FormattedMessage id='doctordetail.price'></FormattedMessage>
-                                <span>{doctor.doctorInfoData.priceId}</span>
-                            </div>
-                            <div className="insurance">
-                                <FormattedMessage id='doctordetail.insurance'></FormattedMessage>
-                            </div>
-
+                            <ExtraDoctorInfor doctorId={currentDoctorId} />
                         </div>
                     </div>
 
@@ -112,12 +109,14 @@ const mapStateToProp = state => {
     return {
         language: state.app.language,
         detailDoctor: state.admin.detailDoctor,
+        extraInfoDoctor: state.admin.extraInfoDoctor,
     }
 }
 
 const mapDispatchToProp = dispatch => {
     return {
         fetchDetailDoctor: (id) => dispatch(action.getDetailDoctorById(id)),
+        fetchExtraInfoDoctor: (id) => dispatch(action.fetchExtraInfoDoctor(id)),
     }
 }
 export default connect(mapStateToProp, mapDispatchToProp)(DetailDoctor);
