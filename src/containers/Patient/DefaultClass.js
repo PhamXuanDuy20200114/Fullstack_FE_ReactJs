@@ -4,9 +4,8 @@ import { languages } from "../../../utils/constant";
 import { connect } from "react-redux";
 import * as action from "../../../store/actions";
 
-import "./ExtraDoctorInfo.scss";
 
-class ExtraDoctorInfo extends React.Component {
+class DefaultClass extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -40,4 +39,4 @@ const mapDispatchToProp = dispatch => {
     return {
     }
 }
-export default connect(mapStateToProp, mapDispatchToProp)(ExtraDoctorInfo);
+export default connect(mapStateToProp, mapDispatchToProp)(DefaultClass);

@@ -29,6 +29,9 @@ const getScheduleDoctorByDate = async (doctorId, date) => {
 const getExtraInfoDoctor = async (id) => {
     return await axios.get(`/api/get-extra-info-doctor-by-id?id=${id}`);
 }
+const getProfileDoctorById = async (doctorId) => {
+    return await axios.get(`/api/get-profile-doctor-by-id?id=${doctorId}`)
+}
 export {
     getTopDoctor,
     getAllDoctors,
@@ -37,5 +40,6 @@ export {
     updateDetailDoctor,
     saveScheduleDoctor,
     getScheduleDoctorByDate,
-    getExtraInfoDoctor
+    getExtraInfoDoctor,
+    getProfileDoctorById
 }

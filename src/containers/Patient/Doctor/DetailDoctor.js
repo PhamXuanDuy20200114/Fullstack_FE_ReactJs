@@ -41,11 +41,25 @@ class DetailDoctor extends React.Component {
         const { doctor, currentDoctorId } = this.state;
         let descriptions = [];
 
-        let nameVi = doctor.positionData && doctor.positionData.valueVi + ', Bác sĩ' + ' ' + doctor.lastName + ' ' + doctor.firstName;
-        let nameEn = doctor.positionData && doctor.positionData.valueEn + ' ' + doctor.firstName + ' ' + doctor.lastName;
+        let nameVi = doctor.lastName + ' ' + doctor.firstName;
+        let nameEn = doctor.firstName + ' ' + doctor.lastName;
 
         if (doctor && doctor.doctorData && doctor.doctorData.description) {
             descriptions = doctor.doctorData.description.split(',');
+        }
+
+        let position = '';
+        if (doctor && doctor.positionData) {
+            if (doctor.positionData.valueEn === 'None') {
+                position = '';
+            } else {
+                if (this.props.language === languages.VI) {
+                    position = doctor.positionData.valueVi;
+                }
+                else {
+                    position = doctor.positionData.valueEn;
+                }
+            }
         }
 
 
@@ -59,6 +73,8 @@ class DetailDoctor extends React.Component {
                         </div>
                         <div className="content-right">
                             <div className="up">
+                                {position}
+                                <FormattedMessage id='booking.doctor'></FormattedMessage> &nbsp;
                                 {this.props.language === languages.VI ? nameVi : nameEn}
                             </div>
 

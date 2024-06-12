@@ -3,7 +3,7 @@ import { getAllCode, createNewUser, getAllUsers, deleteUserService, updateUserSe
 import {
     getTopDoctor, getAllDoctors, createDetailDoctor,
     getDetailDoctor, updateDetailDoctor, saveScheduleDoctor,
-    getScheduleDoctorByDate, getExtraInfoDoctor
+    getScheduleDoctorByDate, getExtraInfoDoctor, getProfileDoctorById
 } from '../../services/doctorService';
 
 //start doing end
@@ -546,5 +546,32 @@ export const fetchExtraInfoDoctorSuccess = (data) => ({
 
 export const fetchExtraInfoDoctorFail = () => ({
     type: actionTypes.FETCH_EXTRA_INFO_DOCTOR_FAIL,
+})
+
+//fetch profile doctor
+export const fetchProfileDoctor = (id) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getProfileDoctorById(id);
+            if (res && res.errCode === 0) {
+                dispatch(fetchProfileDoctorSuccess(res.data));
+            } else {
+                dispatch(fetchProfileDoctorFail())
+            }
+        }
+        catch (e) {
+            dispatch(fetchProfileDoctorFail());
+            console.log('fetch create user start err: ', e);
+        }
+    }
+}
+
+export const fetchProfileDoctorSuccess = (data) => ({
+    type: actionTypes.FETCH_PROFILE_DOCTOR_SUCCESS,
+    data
+})
+
+export const fetchProfileDoctorFail = () => ({
+    type: actionTypes.FETCH_PROFILE_DOCTOR_FAIL,
 })
 

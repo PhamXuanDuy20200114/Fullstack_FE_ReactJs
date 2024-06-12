@@ -5,15 +5,13 @@ import { connect } from 'react-redux';
 import * as action from '../../../../store/actions';
 import './ModalBooking.scss';
 import { languages } from '../../../../utils/constant';
+import ProfileDoctor from '../ProfileDoctor';
 
 class ModalBooking extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            detailDoctor: {},
-            price: '',
-
             listGenders: [],
 
             fullName: '',
@@ -23,29 +21,15 @@ class ModalBooking extends Component {
             reason: '',
             bookingFor: '',
             gender: '',
+
         }
     }
 
     componentDidMount() {
-        let id = this.props.dataTime.doctorId;
-        this.props.fetchDetailDoctor(id);
-        this.props.fetchExtraInfoDoctor(id);
         this.props.fetchAllGender();
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.detailDoctor !== this.props.detailDoctor) {
-            this.setState({ detailDoctor: this.props.detailDoctor });
-        }
-        if (prevProps.extraInfoDoctor !== this.props.extraInfoDoctor) {
-            if (this.props.extraInfoDoctor.priceData) {
-                if (this.props.language === languages.VI) {
-                    this.setState({ price: this.props.extraInfoDoctor.priceData.valueVi + ' VND' });
-                } else {
-                    this.setState({ price: this.props.extraInfoDoctor.priceData.valueEn + '$' });
-                }
-            }
-        }
         if (prevProps.genders !== this.props.genders) {
             this.setState({ listGenders: this.props.genders });
         }
@@ -55,59 +39,19 @@ class ModalBooking extends Component {
         this.props.toggle();
     }
 
-    handaleOnchangeInput = (event) => {
+    handleOnchangeInput = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
-    checkValidateInput = () => {
-        let arrInput = ['email', 'password', 'firstName', 'lastName', 'address'];
-        let isValid = true;
-        console.log('state', this.state);
-        for (let i = 0; i < arrInput.length; i++) {
-            if (!this.state[arrInput[i]]) {
-                isValid = false;
-                alert('Missing ' + arrInput[i]);
-                break;
-            }
-        }
-        return isValid;
-    }
-
-    handleAddNewUser = () => {
-        if (this.checkValidateInput()) {
-            this.props.createNewUserByService(this.state);
-        }
-    }
 
     render() {
-        const { detailDoctor, price, listGenders,
-            fullName, phoneNumber, email, address, reason, bookingFor, gender } = this.state;
-
-        let doctorNameVi = detailDoctor.firstName + ' ' + detailDoctor.lastName;
-        let doctorNameEn = detailDoctor.lastName + ' ' + detailDoctor.firstName;
-
-        let descriptions = '';
-        if (detailDoctor && detailDoctor.doctorData && detailDoctor.doctorData.description) {
-            descriptions = detailDoctor.doctorData.description;
-        }
-        let position = '';
-        if (detailDoctor && detailDoctor.positionData) {
-            if (detailDoctor.positionData.valueEn === 'None') {
-                position = '';
-            } else {
-                if (this.props.language === languages.VI) {
-                    position = detailDoctor.positionData.valueVi;
-                }
-                else {
-                    position = detailDoctor.positionData.valueEn;
-                }
-            }
-        }
-
-        console.log('detailDoctor', detailDoctor);
-
+        const { listGenders,
+            fullName, phoneNumber, email, address,
+            reason, bookingFor, gender }
+            = this.state;
+        const { dataTime } = this.props;
         return (
             <div>
                 <Modal
@@ -124,70 +68,53 @@ class ModalBooking extends Component {
                         <FormattedMessage id='booking.booking'></FormattedMessage>
                     </ModalHeader>
                     <ModalBody>
-                        <div className="doctor-booking">
-                            <div className="content-left">
-                                <div className="avatar-doctor" style={{ backgroundImage: `url(${detailDoctor.image})` }}></div>
-                            </div>
-                            <div className="content-right">
-                                <div className="up">
-                                    {position && position + ', '}
-                                    <FormattedMessage id='booking.doctor'></FormattedMessage>&nbsp;
-                                    {this.props.language === languages.VI ? doctorNameVi : doctorNameEn}
-                                </div>
-
-                                <div className="down">
-                                    {descriptions}
-                                </div>
-                            </div>
-                        </div>
-                        <div className='price'>
-                            <FormattedMessage id='booking.price'></FormattedMessage>:&nbsp;
-                            <span>{price}</span>
-                        </div>
+                        <ProfileDoctor
+                            dataTime={dataTime}
+                        />
 
                         <div className='customer-info row'>
                             <div className='col-6 form-group'>
                                 <label><FormattedMessage id='booking.name'></FormattedMessage></label>
                                 <input
-                                    type='text' name='name' className='form-control'
-                                    onChange={(event) => this.handaleOnchangeInput(event)}
+                                    type='text' name='name' className='form-control' value={fullName}
+                                    onChange={(event) => this.handleOnchangeInput(event)}
                                 />
                             </div>
                             <div className='col-6 form-group'>
                                 <label><FormattedMessage id='booking.phone'></FormattedMessage></label>
                                 <input
-                                    type='text' name='phone' className='form-control'
-                                    onChange={(event) => this.handaleOnchangeInput(event)}
+                                    type='text' name='phone' className='form-control' value={phoneNumber}
+                                    onChange={(event) => this.handleOnchangeInput(event)}
                                 />
                             </div>
                             <div className='col-6 form-group'>
                                 <label><FormattedMessage id='booking.email'></FormattedMessage></label>
                                 <input
-                                    type='text' name='email' className='form-control'
-                                    onChange={(event) => this.handaleOnchangeInput(event)}
+                                    type='text' name='email' className='form-control' value={email}
+                                    onChange={(event) => this.handleOnchangeInput(event)}
                                 />
                             </div>
                             <div className='col-6 form-group'>
                                 <label><FormattedMessage id='booking.address'></FormattedMessage></label>
                                 <input
-                                    type='text' name='address' className='form-control'
-                                    onChange={(event) => this.handaleOnchangeInput(event)} />
+                                    type='text' name='address' className='form-control' value={address}
+                                    onChange={(event) => this.handleOnchangeInput(event)} />
                             </div>
                             <div className='col-12 form-group'>
                                 <label><FormattedMessage id='booking.reason'></FormattedMessage></label>
                                 <input
-                                    type='text' name='reason' className='form-control'
-                                    onChange={(event) => this.handaleOnchangeInput(event)} />
+                                    type='text' name='reason' className='form-control' value={reason}
+                                    onChange={(event) => this.handleOnchangeInput(event)} />
                             </div>
                             <div className='col-6 form-group'>
                                 <label><FormattedMessage id='booking.booking-for'></FormattedMessage></label>
                                 <input
-                                    type='text' name='bookingFor' className='form-control'
-                                    onChange={(event) => this.handaleOnchangeInput(event)} />
+                                    type='text' name='bookingFor' className='form-control' value={bookingFor}
+                                    onChange={(event) => this.handleOnchangeInput(event)} />
                             </div>
                             <div className='col-6 form-group'>
                                 <label><FormattedMessage id='booking.gender'></FormattedMessage></label>
-                                <select className='form-control' value={gender} name='gender' onChange={(e) => this.handleOnChange(e)}>
+                                <select className='form-control' value={gender} name='gender' onChange={(e) => this.handleOnchangeInput(e)}>
                                     {listGenders && listGenders.length > 0 &&
                                         listGenders.map((item, index) => {
                                             return <option key={index} value={item.keyMap}>{this.props.language === languages.VI ? item.valueVi : item.valueEn}</option>

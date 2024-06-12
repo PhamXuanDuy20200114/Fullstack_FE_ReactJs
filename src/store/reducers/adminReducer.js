@@ -1,3 +1,4 @@
+import ProfileDoctor from '../../containers/Patient/Doctor/ProfileDoctor';
 import actionTypes from '../actions/actionTypes';
 import { toast } from 'react-toastify';
 const initialState = {
@@ -19,6 +20,8 @@ const initialState = {
     payments: [],
 
     extraInfoDoctor: {},
+
+    profileDoctor: {},
 }
 
 const appReducer = (state = initialState, action) => {
@@ -257,6 +260,17 @@ const appReducer = (state = initialState, action) => {
             }
 
         case actionTypes.FETCH_EXTRA_INFO_DOCTOR_FAIL:
+            return {
+                ...state
+            }
+
+        //fetch profile doctor
+        case actionTypes.FETCH_PROFILE_DOCTOR_SUCCESS:
+            state.profileDoctor = action.data;
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_PROFILE_DOCTOR_FAIL:
             return {
                 ...state
             }

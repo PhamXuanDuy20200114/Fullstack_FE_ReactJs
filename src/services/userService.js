@@ -29,5 +29,5 @@ export {
     createNewUser,
     updateUserService,
     deleteUserService,
-    getAllCode
+    getAllCode,
 }
