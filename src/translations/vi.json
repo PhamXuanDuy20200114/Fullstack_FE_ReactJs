@@ -156,5 +156,19 @@
         "more-info": "Xem chi tiết",
         "close": "Ẩn bớt",
         "payment": "Khách hàng có thể thanh toán bằng "
+    },
+    "booking": {
+        "booking": "Đặt lịch khám bệnh",
+        "price": "Giá khám",
+        "doctor": "Bác sĩ",
+        "name": "Họ tên",
+        "phone": "Số điện thoại",
+        "email": "Email",
+        "address": "Địa chỉ liên hệ",
+        "reason": "Lý do khám",
+        "booking-for": "Đặt cho ai",
+        "gender": "Giới tính",
+        "save": "Lưu",
+        "cancel": "Hủy"
     }
 }

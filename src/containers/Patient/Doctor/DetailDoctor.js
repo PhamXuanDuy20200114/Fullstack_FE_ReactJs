@@ -35,6 +35,8 @@ class DetailDoctor extends React.Component {
         }
     }
 
+
+
     render() {
         const { doctor, currentDoctorId } = this.state;
         let descriptions = [];
@@ -101,6 +103,7 @@ class DetailDoctor extends React.Component {
 
                     </div>
                 </div >
+
             </>
         )
     }

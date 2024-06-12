@@ -48,6 +48,8 @@ class ExtraDoctorInfo extends React.Component {
             addressClinic = extraInfoDoctor.addressClinic;
             if (extraInfoDoctor.paymentData.valueVi === 'Tất cả') {
                 payment = this.props.language === languages.VI ? 'Tiền mặt và Thẻ ATM' : 'Card and Credit card';
+            } else {
+                payment = this.props.language === languages.VI ? extraInfoDoctor.paymentData.valueVi : extraInfoDoctor.paymentData.valueEn;
             }
         }
 

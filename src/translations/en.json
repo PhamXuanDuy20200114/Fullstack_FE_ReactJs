@@ -159,5 +159,19 @@
         "more-info": "More information",
         "close": "Close",
         "payment": "Customers can pay with "
+    },
+    "booking": {
+        "booking": "Booking appointment",
+        "price": "Price",
+        "doctor": "Doctor",
+        "name": "Full name",
+        "phone": "Phonenumber",
+        "email": "Email",
+        "address": "Address",
+        "reason": "Reason",
+        "booking-for": "Booking for",
+        "gender": "Gender",
+        "save": "Save",
+        "cancel": "Cancel"
     }
 }

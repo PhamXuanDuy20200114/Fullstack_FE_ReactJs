@@ -1,0 +1,78 @@
+.modal-booking-container {
+    width: 750px;
+
+    .modal-title {
+        height: 50px;
+        font-size: 20px;
+        font-weight: 600;
+        color: #555555;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        button {
+            border: none;
+            background: transparent;
+            color: red;
+            font-size: 30px;
+        }
+    }
+
+    .doctor-booking {
+        display: flex;
+        height: 110px;
+        width: 100%;
+
+        .content-left {
+
+            .avatar-doctor {
+                width: 80px;
+                height: 80px;
+                margin: 10px 10px 0 0;
+                border-radius: 50%;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        .content-right {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+
+            .up {
+                font-size: 16px;
+                font-weight: 600;
+                margin: 10px 0 5px 0;
+            }
+
+            .down {
+                font-size: 14px;
+                color: #5A5A5A;
+
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .price {
+        font-size: 14px;
+        font-weight: 500;
+        color: #555555;
+
+        span {
+            color: #49BCE2;
+        }
+    }
+
+    .customer-info {
+        .form-group {
+            margin-top: 10px;
+        }
+    }
+}
