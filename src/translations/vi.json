@@ -135,7 +135,7 @@
     "manageschedule": {
         "manage-schedule": "Quản lý lịch làm việc",
         "add-new-schedule": "Thêm lịch làm việc mới",
-        "choose-doctor": "Chọn bác sĩ:",
+        "choose-doctor": "Bác sĩ:",
         "choose-clinic": "Chọn phòng khám:",
         "choose-date": "Chọn ngày:",
         "choose-time": "Chọn giờ:",
@@ -169,7 +169,22 @@
         "booking-for": "Đặt cho ai",
         "gender": "Giới tính",
         "free-booking": "Đặt lịch miễn phí",
+        "birthday": "Ngày sinh",
         "save": "Lưu",
         "cancel": "Hủy"
+    },
+    "verifybooking": {
+        "true": "Xác thực thành công!",
+        "false": "Xác thực thất bại!",
+        "err": "Lịch hẹn đã được xác nhận hoặc không tồn tại!"
+    },
+    "managespecialty": {
+        "manage-specialty": "Quản lý chuyên khoa",
+        "specialty": "Chuyên khoa",
+        "image": "Chọn ảnh",
+        "name": "Tên chuyên khoa",
+        "description": "Mô tả",
+        "save": "Lưu",
+        "change": "Lưu thay đổi"
     }
 }

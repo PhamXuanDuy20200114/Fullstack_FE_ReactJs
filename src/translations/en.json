@@ -138,7 +138,7 @@
     "manageschedule": {
         "manage-schedule": "Manage schedule",
         "add-new-schedule": "Add new schedule",
-        "doctor": "Doctor:",
+        "choose-doctor": "Doctor:",
         "choose-clinic": "Choose clinic:",
         "choose-date": "Choose date:",
         "choose-time": "Choose time:",
@@ -172,7 +172,22 @@
         "booking-for": "Booking for",
         "gender": "Gender",
         "free-booking": "Free appointment booking",
+        "birthday": "Birthday",
         "save": "Save",
         "cancel": "Cancel"
+    },
+    "verifybooking": {
+        "true": "Verify is successful!",
+        "false": "Verify is failed!",
+        "err": "The appointment has been confirmed or does not exist!"
+    },
+    "managespecialty": {
+        "manage-specialty": "Manage specialty",
+        "specialty": "Specialty",
+        "image": "Choose image",
+        "name": "Specialty name",
+        "description": "Description",
+        "save": "Save",
+        "change": "Save change"
     }
 }

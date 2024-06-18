@@ -22,6 +22,13 @@ const getAllCode = async (inputType) => {
     return await axios.get(`/api/allcode?type=${inputType}`)
 }
 
+const postPatientBooking = async (data) => {
+    return await axios.post('/api/patient-book-appointment', data)
+}
+
+const verifyBooking = async (data) => {
+    return await axios.post('/api/verify-book-appointment', data)
+}
 
 export {
     handleLogin,
@@ -30,4 +37,6 @@ export {
     updateUserService,
     deleteUserService,
     getAllCode,
+    postPatientBooking,
+    verifyBooking
 }

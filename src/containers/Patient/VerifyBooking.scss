@@ -1,0 +1,21 @@
+.verify {
+    padding: 10px 14vw 5px 13vw;
+    font-weight: 600;
+    text-align: center;
+
+    .loading {
+        font-size: 20px;
+        font-weight: 500;
+        color: #555555;
+    }
+
+    .success {
+        font-size: 20px;
+        color: #49BCE2;
+    }
+
+    .fail {
+        font-size: 20px;
+        color: red;
+    }
+}

@@ -73,7 +73,7 @@ class DetailDoctor extends React.Component {
                         </div>
                         <div className="content-right">
                             <div className="up">
-                                {position}
+                                {position && position + ', '}
                                 <FormattedMessage id='booking.doctor'></FormattedMessage> &nbsp;
                                 {this.props.language === languages.VI ? nameVi : nameEn}
                             </div>

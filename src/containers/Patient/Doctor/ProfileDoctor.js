@@ -6,9 +6,9 @@ import * as action from "../../../store/actions";
 import moment from "moment";
 import localization from 'moment/locale/vi';
 
-import "./ExtraDoctorInfo.scss";
+import "./ProfileDoctor.scss";
 
-class ExtraDoctorInfo extends React.Component {
+class ProfileDoctor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -87,6 +87,7 @@ class ExtraDoctorInfo extends React.Component {
                 price = detailDoctor.doctorInfoData.priceData.valueEn;
             }
         }
+        console.log('detailDoctor', detailDoctor);
 
 
         return (
@@ -130,4 +131,4 @@ const mapDispatchToProp = dispatch => {
         fetchProfileDoctorById: (doctorId) => dispatch(action.fetchProfileDoctor(doctorId))
     }
 }
-export default connect(mapStateToProp, mapDispatchToProp)(ExtraDoctorInfo);
+export default connect(mapStateToProp, mapDispatchToProp)(ProfileDoctor);
