@@ -29,7 +29,6 @@ class OutStandingDoctor extends Component {
     }
 
     handleViewDetailDoctor = (doctor) => {
-        console.log('doctor', doctor);
         this.props.history.push(`/detail-doctor/${doctor.id}`);
     }
 
@@ -43,7 +42,6 @@ class OutStandingDoctor extends Component {
         }
 
         let outStandingDoctor = this.state.outStandingDoctor;
-        console.log('outStandingDoctor', outStandingDoctor);
         return (
 
             <div className='section-container section-doctor'>

@@ -29,26 +29,9 @@
     },
     "specialty": {
         "specialty": "Chuyên khoa",
-        "musculoskeletal": "Cơ xương khớp",
-        "neurology": "Thần kinh",
-        "gastroenterology": "Tiêu hóa",
-        "cardiology": "Tim mạch",
-        "otorhinolaryngology": "Tai mũi họng",
-        "spine": "Cột sống",
-        "traditional-medicine": "Y học cổ truyền",
-        "acupuncture": "Châm cứu",
-        "obstetrics-gynecology": "Sản phụ khoa",
-        "pediatrics": "Nhi khoa",
-        "ophthalmology": "Mắt",
-        "dermatology": "Da liễu",
-        "urology": "Tiết niệu",
-        "endocrinology": "Nội tiết",
-        "psychiatry": "Sức khỏe tâm thần",
-        "dentistry": "Nha khoa",
-        "hepatitis": "Viêm gan",
-        "digestive": "Tiêu hóa",
-        "respiratory": "Hô hấp",
-        "infertility": "Vô sinh hiếm muộn"
+        "more": "Xem thêm",
+        "specialized-examination": "Khám chuyên khoa",
+        "hide": "Ẩn bớt"
     },
     "doctor": {
         "out-standing-doctor": "Bác sĩ nổi bật",
@@ -130,7 +113,9 @@
         "clinic-name": "Tên phòng khám:",
         "clinic-address": "Địa chỉ phòng khám:",
         "payment": "Phương thức thanh toán:",
-        "note": "Ghi chú:"
+        "note": "Ghi chú:",
+        "specialty": "Chuyên khoa: ",
+        "clinic": "Phòng khám: "
     },
     "manageschedule": {
         "manage-schedule": "Quản lý lịch làm việc",

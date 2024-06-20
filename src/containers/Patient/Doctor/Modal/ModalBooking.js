@@ -145,7 +145,6 @@ class ModalBooking extends Component {
             reason, birthday, gender }
             = this.state;
         const { dataTime } = this.props;
-        console.log(gender)
         return (
             <div>
                 <Modal

@@ -30,7 +30,11 @@ const getExtraInfoDoctor = async (id) => {
     return await axios.get(`/api/get-extra-info-doctor-by-id?id=${id}`);
 }
 const getProfileDoctorById = async (doctorId) => {
-    return await axios.get(`/api/get-profile-doctor-by-id?id=${doctorId}`)
+    return await axios.get(`/api/get-profile-doctor-by-id?id=${doctorId}`);
+}
+
+const getDoctorBySpecialty = async (id, location) => {
+    return await axios.get(`/api/get-doctor-by-specialty?id=${id}&location=${location}`);
 }
 export {
     getTopDoctor,
@@ -41,5 +45,6 @@ export {
     saveScheduleDoctor,
     getScheduleDoctorByDate,
     getExtraInfoDoctor,
-    getProfileDoctorById
+    getProfileDoctorById,
+    getDoctorBySpecialty
 }

@@ -30,26 +30,8 @@
     "specialty": {
         "specialty": "Specialty",
         "more": "More",
-        "musculoskeletal": "Musculoskeletal",
-        "neurology": "Neurology",
-        "gastroenterology": "Gastroenterology",
-        "cardiology": "Cardiology",
-        "otorhinolaryngology": "Otorhinolaryngology",
-        "spine": "Spine",
-        "traditional-medicine": "Traditional medicine",
-        "acupuncture": "Acupuncture",
-        "obstetrics-gynecology": "Obstetrics - Gynecology",
-        "pediatrics": "Pediatrics",
-        "ophthalmology": "Ophthalmology",
-        "dermatology": "Dermatology",
-        "urology": "Urology",
-        "endocrinology": "Endocrinology",
-        "psychiatry": "Psychiatry",
-        "dentistry": "Dentistry",
-        "hepatitis": "Hepatitis",
-        "digestive": "Digestive",
-        "respiratory": "Respiratory",
-        "infertility": "Infertility"
+        "specialized-examination": "Specialized examination",
+        "hide": "Hide"
     },
     "doctor": {
         "out-standing-doctor": "Outstanding doctor",
@@ -133,7 +115,9 @@
         "clinic-name": "Clinic's name:",
         "clinic-address": "Clinic's address:",
         "payment": "Payment:",
-        "note": "Note:"
+        "note": "Note:",
+        "specialty": "Specialty:",
+        "clinic": "Clinic:"
     },
     "manageschedule": {
         "manage-schedule": "Manage schedule",

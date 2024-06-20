@@ -6,6 +6,7 @@ import * as action from "../../../store/actions";
 import moment from "moment";
 import localization from 'moment/locale/vi';
 import ModalBooking from "./Modal/ModalBooking";
+import { getScheduleDoctorByDate } from "../../../services/doctorService";
 
 import "./DoctorSchedule.scss";
 
@@ -20,24 +21,28 @@ class DoctorSchedule extends React.Component {
         }
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         let allDays = this.getArrDays();
         this.setState({ allDays });
+        if (this.props.doctorId) {
+            let res = await getScheduleDoctorByDate(this.props.doctorId, allDays[0].value);
+            if (res && res.errCode === 0) {
+                this.setState({ allAvailableTime: res.data });
+            }
+        }
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    async componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.language !== this.props.language) {
             let allDays = this.getArrDays();
             this.setState({ allDays });
         }
-        if (prevProps.allAvailableTime !== this.props.allAvailableTime) {
-            this.setState({ allAvailableTime: this.props.allAvailableTime ? this.props.allAvailableTime : [] });
-        }
 
-        if (this.props.doctorId !== prevProps.doctorId) {
-            let allDays = this.getArrDays();
-            if (allDays && allDays.length > 0) {
-                this.props.getScheduleByDate(this.props.doctorId, allDays[0].value);
+        if (prevProps.doctorId !== this.props.doctorId) {
+            let allDays = this.state.allDays;
+            let res = await getScheduleDoctorByDate(this.props.doctorId, allDays[0].value);
+            if (res && res.errCode === 0) {
+                this.setState({ allAvailableTime: res.data });
             }
         }
     }

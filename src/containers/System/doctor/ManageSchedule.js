@@ -10,7 +10,7 @@ import moment from 'moment';
 import './ManageSchedule.scss';
 import { toast } from 'react-toastify';
 import { saveScheduleDoctor } from '../../../services/doctorService';
-
+import { getScheduleDoctorByDate } from "../../../services/doctorService";
 
 class ManageSchedule extends Component {
 
@@ -29,14 +29,11 @@ class ManageSchedule extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchAllDoctor();
         this.props.fetchAllCodeHours();
+        this.props.fetchAllDoctor();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.listDoctors !== this.props.listDoctors) {
-            this.setState({ listDoctors: this.props.listDoctors });
-        }
         if (prevProps.scheduleTime !== this.props.scheduleTime) {
             let data = this.props.scheduleTime;
             if (data && data.length > 0) {
@@ -46,6 +43,10 @@ class ManageSchedule extends Component {
                 this.setState({ listHours: data });
             }
         }
+        if (prevProps.listDoctors !== this.props.listDoctors) {
+            this.setState({ listDoctors: this.props.listDoctors });
+        }
+
     }
 
     buildSelectOption = (listDoctors) => {
@@ -122,7 +123,7 @@ class ManageSchedule extends Component {
     }
 
     render() {
-        const { listDoctors, selectedOption, currentDate, listHours, chooseTime } = this.state;
+        const { listDoctors, selectedOption, currentDate, listHours } = this.state;
         const date = new Date();
         return (
             <div className='manage-schedule-container'>

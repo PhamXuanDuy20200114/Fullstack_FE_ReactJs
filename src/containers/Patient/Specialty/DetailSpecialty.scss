@@ -1,0 +1,198 @@
+.specialty-container {
+    font-family: Montserrat sans-serif;
+    background-color: #FDFDFD;
+
+    .home {
+        display: flex;
+        gap: 10px;
+        font-size: 18px;
+        font-weight: 500;
+        color: #49BCE2;
+        padding: 10px 14vw 5px 13vw;
+
+        i {
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+
+    .specialty-content {
+        background-color: #FDFDFD;
+        padding: 10px 14vw 5px 13vw;
+
+
+        .specialty-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .specialty-detail {
+
+            li {
+                font-size: 16px;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: 500;
+                margin: 10px 0;
+            }
+
+            h3 {
+                font-size: 16px;
+                font-weight: 600;
+                margin: 10px 0;
+
+            }
+        }
+
+        button {
+            background-color: transparent;
+            color: #2B8AC6;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    }
+
+    .location {
+        padding-left: 13vw;
+        margin-top: 30px;
+
+        select {
+            width: 120px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #CCCCCC;
+            padding-left: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+    }
+
+    .specialty-doctor {
+        padding: 10px 14vw 5px 13vw;
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .doctor-item {
+            display: flex;
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+            gap: 10px;
+            border-radius: 20px;
+            padding-top: 10px;
+
+            .intro-doctor {
+                width: 50%;
+                display: flex;
+                border-right: 1px solid #EEEEEE;
+
+                .content-left {
+
+                    .avatar-doctor {
+                        width: 85px;
+                        height: 85px;
+                        border-radius: 50%;
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeats;
+                        margin: 5px 10px;
+                        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+                    }
+
+                    button {
+                        background-color: transparent;
+                        color: #2B8AC6;
+                        border: none;
+                        font-size: 14px;
+                        cursor: pointer;
+                        margin-left: 10px;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                    }
+                }
+
+                .content-right {
+                    width: 80%;
+                    display: flex;
+                    flex-direction: column;
+
+                    .up {
+                        font-size: 20px;
+                        font-weight: 600;
+                        margin: 8px 0 5px 0;
+                    }
+
+                    .down {
+                        font-size: 14px;
+                        color: #5A5A5A;
+                        padding-left: 5px;
+
+                        p {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    .doctor-address {
+                        display: flex;
+                        gap: 10px;
+                        margin-top: 10px;
+                    }
+
+                    .province {
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: #000000;
+                        margin-top: 5px;
+
+                        i {
+                            margin-right: 5px;
+                        }
+                    }
+
+                    .social {
+                        display: flex;
+                        gap: 10px;
+                        margin-top: 10px;
+
+                        .like {
+                            height: 24px;
+                            width: 80px;
+                            background-color: #1877F2;
+                            color: white;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 10px;
+                            border-radius: 5px;
+                            font-size: 16px;
+                        }
+
+                        .share {
+                            height: 24px;
+                            width: 80px;
+                            background-color: #1877F2;
+                            color: white;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 10px;
+                            border-radius: 5px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            .doctor-right {
+                width: 50%;
+                padding: 0 20px;
+            }
+        }
+
+    }
+}

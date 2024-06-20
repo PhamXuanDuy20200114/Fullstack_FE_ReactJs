@@ -45,7 +45,7 @@ class DetailDoctor extends React.Component {
         let nameEn = doctor.firstName + ' ' + doctor.lastName;
 
         if (doctor && doctor.doctorData && doctor.doctorData.description) {
-            descriptions = doctor.doctorData.description.split(',');
+            descriptions = doctor.doctorData.description.split('.');
         }
 
         let position = '';

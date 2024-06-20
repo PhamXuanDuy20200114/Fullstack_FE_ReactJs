@@ -20,7 +20,6 @@ class System extends Component {
                             <Route path="/system/user-redux" component={UserRedux} />
                             <Route path="/system/manage-doctor" component={ManageDoctor} />
                             <Route path="/system/specialty-manage" component={ManageSpecialty} />
-                            <Route path="/doctor/manage-schedule" component={ManageSchedule} />
                             <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />
                         </Switch>
                     </div>

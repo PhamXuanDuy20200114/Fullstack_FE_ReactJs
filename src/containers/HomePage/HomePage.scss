@@ -67,6 +67,32 @@
                     text-align: center;
                 }
             }
+
+            .specialty-slide {
+                cursor: pointer;
+                padding: 10px 20px;
+                height: 320px;
+                width: 95% !important;
+                background-color: #FFFFFF;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+                .specialty-image {
+                    margin-top: 8px;
+                    height: 80%;
+                    display: flex;
+                    background-size: cover !important;
+                    background-position: top !important;
+                    background-repeat: no-repeat !important;
+                }
+
+                .specialty-name {
+                    font-size: 20px;
+                    font-weight: 600;
+                    text-align: center;
+                    margin-top: 20px;
+                }
+            }
         }
 
     }

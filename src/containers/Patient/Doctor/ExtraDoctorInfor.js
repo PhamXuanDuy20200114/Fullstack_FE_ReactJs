@@ -4,6 +4,7 @@ import { languages } from "../../../utils/constant";
 import { connect } from "react-redux";
 import * as action from "../../../store/actions";
 import Header from "../../HomePage/Header";
+import { getExtraInfoDoctor } from "../../../services/doctorService";
 
 import "./ExtraDoctorInfo.scss";
 
@@ -16,17 +17,21 @@ class ExtraDoctorInfo extends React.Component {
         }
     }
 
-    componentDidMount() {
-
+    async componentDidMount() {
+        let id = this.props.doctorId;
+        let res = await getExtraInfoDoctor(id);
+        if (res && res.errCode === 0) {
+            this.setState({ extraInfoDoctor: res.data });
+        }
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.extraInfoDoctor !== this.props.extraInfoDoctor) {
-            this.setState({ extraInfoDoctor: this.props.extraInfoDoctor });
-        }
+    async componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.doctorId !== this.props.doctorId) {
             let id = this.props.doctorId;
-            this.props.fetchExtraInfoDoctor(id);
+            let res = await getExtraInfoDoctor(id);
+            if (res && res.errCode === 0) {
+                this.setState({ extraInfoDoctor: res.data });
+            }
         }
     }
 
@@ -96,13 +101,11 @@ class ExtraDoctorInfo extends React.Component {
 const mapStateToProp = state => {
     return {
         language: state.app.language,
-        extraInfoDoctor: state.admin.extraInfoDoctor,
     }
 }
 
 const mapDispatchToProp = dispatch => {
     return {
-        fetchExtraInfoDoctor: (id) => dispatch(action.fetchExtraInfoDoctor(id)),
     }
 }
 export default connect(mapStateToProp, mapDispatchToProp)(ExtraDoctorInfo);
