@@ -73,9 +73,12 @@ class DoctorSchedule extends React.Component {
         return arrDate;
     }
 
-    handleOnChangeDate = (e) => {
+    handleOnChangeDate = async (e) => {
         let date = e.target.value;
-        this.props.getScheduleByDate(this.props.doctorId, date);
+        let res = await getScheduleDoctorByDate(this.props.doctorId, date);
+        if (res && res.errCode === 0) {
+            this.setState({ allAvailableTime: res.data });
+        }
     }
 
     handleOnClickScheduleTime = (item) => {
@@ -141,13 +144,11 @@ class DoctorSchedule extends React.Component {
 const mapStateToProp = state => {
     return {
         language: state.app.language,
-        allAvailableTime: state.admin.doctorsScheduleTime,
     }
 }
 
 const mapDispatchToProp = dispatch => {
     return {
-        getScheduleByDate: (doctorId, date) => dispatch(action.fetchScheduleDoctor(doctorId, date)),
     }
 }
 export default connect(mapStateToProp, mapDispatchToProp)(DoctorSchedule);

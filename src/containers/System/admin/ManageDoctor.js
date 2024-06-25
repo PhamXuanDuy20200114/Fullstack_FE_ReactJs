@@ -8,6 +8,7 @@ import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
 import { getDetailDoctor, getExtraInfoDoctor } from '../../../services/doctorService';
 import { getAllSpecialties } from '../../../services/specialtyService';
+import { getAllClinic } from '../../../services/clinicService';
 import Select from 'react-select'
 
 import './ManageDoctor.scss';
@@ -65,6 +66,12 @@ class ManageDoctor extends Component {
             let listSpecialty = this.buildSelectOption(data, 'SPECIALTY');
             this.setState({ listSpecialty: listSpecialty });
         }
+        let resClinic = await getAllClinic();
+        if (resClinic && resClinic.errCode === 0) {
+            let data = resClinic.data;
+            let listClinic = this.buildSelectOption(data, 'CLINIC');
+            this.setState({ listClinic: listClinic });
+        }
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -117,10 +124,10 @@ class ManageDoctor extends Component {
             let selectedProvince = this.props.language === languages.EN ? { value: resExtra.data.provinceId, label: resExtra.data.provinceData.valueEn } : { value: resExtra.data.provinceId, label: resExtra.data.provinceData.valueVi };
             let selectedPayment = this.props.language === languages.EN ? { value: resExtra.data.paymentId, label: resExtra.data.paymentData.valueEn } : { value: resExtra.data.paymentId, label: resExtra.data.paymentData.valueVi };
             let selectedSpecialty = { value: resExtra.data.specialtyId, label: resExtra.data.specialtyData.name };
-            //let selectedClinic = { value: resExtra.data.clinicId, label: resExtra.data.clinicData.name };
+            let selectedClinic = { value: resExtra.data.clinicId, label: resExtra.data.clinicData.name };
             this.setState({
                 selectedSpecialty: selectedSpecialty,
-                //selectedClinic: selectedClinic,
+                selectedClinic: selectedClinic,
                 selectedPrice: selectedPrice,
                 selectedProvince: selectedProvince,
                 selectedPayment: selectedPayment,
@@ -216,6 +223,7 @@ class ManageDoctor extends Component {
             description: description,
             //doctor_infos table    
             specialtyId: selectedSpecialty.value,
+            clinicId: selectedClinic.value,
             priceId: selectedPrice.value,
             provinceId: selectedProvince.value,
             paymentId: selectedPayment.value,

@@ -84,7 +84,6 @@ class DetailSpecialty extends React.Component {
         return (
             <>
                 <Header />
-
                 <div className="specialty-container">
                     <div className="home">
                         <i class="fas fa-home" onClick={() => this.handleBackToHome()}></i>/

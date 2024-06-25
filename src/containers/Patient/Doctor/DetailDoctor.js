@@ -135,7 +135,6 @@ const mapStateToProp = state => {
 const mapDispatchToProp = dispatch => {
     return {
         fetchDetailDoctor: (id) => dispatch(action.getDetailDoctorById(id)),
-        fetchExtraInfoDoctor: (id) => dispatch(action.fetchExtraInfoDoctor(id)),
     }
 }
 export default connect(mapStateToProp, mapDispatchToProp)(DetailDoctor);

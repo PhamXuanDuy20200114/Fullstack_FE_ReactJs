@@ -44,7 +44,7 @@
     "medicalfacility": {
         "medical-facility": "Medical facility",
         "more": "More",
-        "hospital": "Hospital"
+        "hide": "Hide"
     },
     "mentalhealth": {
         "mental-health": "Mental health",
@@ -171,6 +171,21 @@
         "image": "Choose image",
         "name": "Specialty name",
         "description": "Description",
+        "save": "Save",
+        "change": "Save change"
+    },
+    "manageclinic": {
+        "manage-clinic": "Manage clinic",
+        "clinic": "Clinic",
+        "address": "Clinic address",
+        "image-logo": "Choose logo image",
+        "image-background": "Choose background image",
+        "name": "Specialty name",
+        "intro": "Introduction",
+        "expertise": "Expertise",
+        "equip": "Equipment",
+        "process": "Process",
+        "price": "Price",
         "save": "Save",
         "change": "Save change"
     }

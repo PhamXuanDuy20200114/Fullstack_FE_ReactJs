@@ -36,6 +36,10 @@ const getProfileDoctorById = async (doctorId) => {
 const getDoctorBySpecialty = async (id, location) => {
     return await axios.get(`/api/get-doctor-by-specialty?id=${id}&location=${location}`);
 }
+
+const getDoctorByClinic = async (id) => {
+    return await axios.get(`/api/get-doctor-by-clinic?id=${id}`);
+}
 export {
     getTopDoctor,
     getAllDoctors,
@@ -46,5 +50,6 @@ export {
     getScheduleDoctorByDate,
     getExtraInfoDoctor,
     getProfileDoctorById,
-    getDoctorBySpecialty
+    getDoctorBySpecialty,
+    getDoctorByClinic
 }

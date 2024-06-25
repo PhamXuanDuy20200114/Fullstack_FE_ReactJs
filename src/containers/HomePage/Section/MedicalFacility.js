@@ -6,19 +6,31 @@ import actionTypes from '../../../store/actions/actionTypes';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import "slick-carousel/slick/slick-theme.css"
-
+import { withRouter } from 'react-router-dom';
+import { getAllClinic } from '../../../services/clinicService';
 
 class MedicalFacility extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            listClinic: [],
 
         };
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+        let response = await getAllClinic();
+        if (response && response.data) {
+            this.setState({
+                listClinic: response.data
+            });
+        }
+    }
 
+    handleViewDetailSpecialty = (clinic) => {
+        console.log('clinic', clinic)
+        this.props.history.push(`/detail-clinic/${clinic.id}`);
     }
 
     render() {
@@ -39,7 +51,23 @@ class MedicalFacility extends Component {
                         </div>
                         <div className='slider-container'>
                             <Slider {...properties}>
+                                {this.state.listClinic && this.state.listClinic.length > 0
+                                    && this.state.listClinic.map((item, index) => {
+                                        let imageLogoBase64 = '';
+                                        if (item.imageLogo) {
+                                            imageLogoBase64 = Buffer.from(item.imageLogo, 'base64').toString('binary');
+                                        }
+                                        return (
+                                            <div className='clinic-slide' key={index} onClick={() => this.handleViewDetailSpecialty(item)}>
+                                                <div className='clinic-image' style={{ background: `url(${imageLogoBase64})` }}>
+                                                </div>
+                                                <div className='clinic-name'>
+                                                    {item.name}
+                                                </div>
 
+                                            </div>
+                                        )
+                                    })}
                             </Slider>
                         </div>
                     </div>
@@ -64,4 +92,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MedicalFacility);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MedicalFacility));

@@ -19,6 +19,7 @@ class ExtraDoctorInfo extends React.Component {
 
     async componentDidMount() {
         let id = this.props.doctorId;
+        if (!id) return;
         let res = await getExtraInfoDoctor(id);
         if (res && res.errCode === 0) {
             this.setState({ extraInfoDoctor: res.data });
@@ -46,11 +47,11 @@ class ExtraDoctorInfo extends React.Component {
         let province = '';
         let clinicName = '';
         let addressClinic = '';
-        if (extraInfoDoctor && extraInfoDoctor.priceData && extraInfoDoctor.paymentData && extraInfoDoctor.provinceData && extraInfoDoctor.clinicName && extraInfoDoctor.addressClinic) {
+        if (extraInfoDoctor && extraInfoDoctor.priceData && extraInfoDoctor.paymentData && extraInfoDoctor.provinceData && extraInfoDoctor.clinicData) {
             price = this.props.language === languages.VI ? extraInfoDoctor.priceData.valueVi + ' VND' : extraInfoDoctor.priceData.valueEn + '$';
             province = this.props.language === languages.VI ? extraInfoDoctor.provinceData.valueVi : extraInfoDoctor.provinceData.valueEn;
-            clinicName = extraInfoDoctor.clinicName;
-            addressClinic = extraInfoDoctor.addressClinic;
+            clinicName = extraInfoDoctor.clinicData.name;
+            addressClinic = extraInfoDoctor.clinicData.address;
             if (extraInfoDoctor.paymentData.valueVi === 'Tất cả') {
                 payment = this.props.language === languages.VI ? 'Tiền mặt và Thẻ ATM' : 'Card and Credit card';
             } else {

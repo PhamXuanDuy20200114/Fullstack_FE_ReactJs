@@ -27,8 +27,8 @@ class HomePage extends Component {
                 <Specialty />
                 <MedicalFacility />
                 <OutStandingDoctor />
-                <MentalHealth />
-                <HandBook />
+                {/* <MentalHealth />
+                <HandBook /> */}
                 <About />
                 <HomeFooter />
             </div>

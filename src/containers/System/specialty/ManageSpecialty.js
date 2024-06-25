@@ -121,8 +121,9 @@ class ManageSpecialty extends Component {
                     </div>
                 </div>
                 <div className='content-bottom'>
+                    <label><FormattedMessage id='manageclinic.description'></FormattedMessage></label>
                     <MdEditor
-                        style={{ height: "500px" }}
+                        style={{ height: "300px" }}
                         renderHTML={(text) => mdParser.render(text)}
                         onChange={this.handleEditorChange}
                         value={descriptionMarkdown}

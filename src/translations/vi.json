@@ -42,7 +42,8 @@
     },
     "medicalfacility": {
         "medical-facility": "Cơ sở y tế",
-        "hospital": "Bệnh viện"
+        "more": "Xem thêm",
+        "hide": "Ẩn bớt"
     },
     "mentalhealth": {
         "mental-health": "Sức khỏe tinh thần",
@@ -169,6 +170,21 @@
         "image": "Chọn ảnh",
         "name": "Tên chuyên khoa",
         "description": "Mô tả",
+        "save": "Lưu",
+        "change": "Lưu thay đổi"
+    },
+    "manageclinic": {
+        "manage-clinic": "Quản lý phòng khám",
+        "clinic": "Phòng khám",
+        "address": "Địa chỉ",
+        "image-logo": "Chọn ảnh logo",
+        "image-background": "Chọn ảnh nền",
+        "name": "Tên phòng khám",
+        "intro": "Giới thiệu",
+        "expertise": "Thế mạnh chuyên môn",
+        "equip": "Trang thiết bị",
+        "process": "Quy trình đi khám",
+        "price": "Giá khám",
         "save": "Lưu",
         "change": "Lưu thay đổi"
     }
