@@ -36,8 +36,6 @@ class ManageDoctor extends Component {
             listPayments: [],
             selectedPayment: null,
 
-            clinicName: '',
-            addressClinic: '',
             note: '',
 
             //Save to markdown table
@@ -131,8 +129,6 @@ class ManageDoctor extends Component {
                 selectedPrice: selectedPrice,
                 selectedProvince: selectedProvince,
                 selectedPayment: selectedPayment,
-                clinicName: resExtra.data.clinicName,
-                addressClinic: resExtra.data.addressClinic,
                 note: resExtra.data.note,
             })
         } else {
@@ -142,8 +138,6 @@ class ManageDoctor extends Component {
                 selectedPrice: null,
                 selectedProvince: null,
                 selectedPayment: null,
-                clinicName: '',
-                addressClinic: '',
                 note: '',
             })
         }
@@ -227,8 +221,6 @@ class ManageDoctor extends Component {
             priceId: selectedPrice.value,
             provinceId: selectedProvince.value,
             paymentId: selectedPayment.value,
-            clinicName: clinicName,
-            addressClinic: addressClinic,
             note: note
         }
         if (this.state.action === CRUD_ACTIONS.EDIT) {
@@ -249,8 +241,6 @@ class ManageDoctor extends Component {
             selectedPrice: null,
             selectedProvince: null,
             selectedPayment: null,
-            clinicName: '',
-            addressClinic: '',
             note: '',
             action: CRUD_ACTIONS.CREATE
         });
@@ -320,20 +310,6 @@ class ManageDoctor extends Component {
                             placeholder={this.props.language === languages.VI ? 'Chọn phương thức thanh toán' : 'Choose payment'} />
                     </div>
                     <div className='form-group col-4'>
-                        <label><FormattedMessage id='managedoctor.clinic-name'></FormattedMessage></label>
-                        <input type='text' className='form-control' value={clinicName} onChange={(e) => this.handleOnChangeInput(e, 'clinicName')} />
-                    </div>
-                    <div className='form-group col-4'>
-                        <label><FormattedMessage id='managedoctor.clinic-address'></FormattedMessage></label>
-                        <input type='text' className='form-control' value={addressClinic} onChange={(e) => this.handleOnChangeInput(e, 'addressClinic')} />
-                    </div>
-                    <div className='form-group col-4'>
-                        <label><FormattedMessage id='managedoctor.note'></FormattedMessage></label>
-                        <input type='text' className='form-control'
-                            value={this.state.note}
-                            onChange={(e) => this.handleOnChangeInput(e, 'note')} />
-                    </div>
-                    <div className='form-group col-4'>
                         <label><FormattedMessage id='managedoctor.specialty'></FormattedMessage></label>
                         <Select
                             value={selectedSpecialty}
@@ -352,6 +328,12 @@ class ManageDoctor extends Component {
                             className='form-control'
                             name='selectedClinic'
                             placeholder={this.props.language === languages.VI ? 'Chọn phòng khám' : 'Choose clinic'} />
+                    </div>
+                    <div className='form-group col-4'>
+                        <label><FormattedMessage id='managedoctor.note'></FormattedMessage></label>
+                        <input type='text' className='form-control'
+                            value={this.state.note}
+                            onChange={(e) => this.handleOnChangeInput(e, 'note')} />
                     </div>
                 </div>
 

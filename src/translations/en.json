@@ -188,5 +188,16 @@
         "price": "Price",
         "save": "Save",
         "change": "Save change"
+    },
+    "clinicdetail": {
+        "booking": "Booking",
+        "intro": "Introduction",
+        "expertise": "Expertise",
+        "equip": "Equipment",
+        "process": "Process",
+        "price": "Price",
+        "address": "Address",
+        "email": "Email",
+        "phone": "Phone"
     }
 }

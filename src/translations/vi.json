@@ -187,5 +187,17 @@
         "price": "Giá khám",
         "save": "Lưu",
         "change": "Lưu thay đổi"
+    },
+    "clinicdetail": {
+        "booking": "Đặt lịch khám",
+        "intro": "Giới thiệu",
+        "expertise": "Thế mạnh chuyên môn",
+        "equip": "Trang thiết bị",
+        "process": "Quy trình đi khám",
+        "price": "Giá khám",
+        "address": "Địa chỉ",
+        "phone": "Số điện thoại",
+        "email": "Email",
+        "website": "Website"
     }
 }

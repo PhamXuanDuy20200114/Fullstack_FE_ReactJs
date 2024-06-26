@@ -62,7 +62,7 @@ class DetailClinic extends React.Component {
 
 
     render() {
-        let { name, introHTML, expertiseHTML, equipHTML, processHTML, priceHTML, listDoctorId, clinicLogo, clinicBackground } = this.state;
+        let { name, address, introHTML, expertiseHTML, equipHTML, processHTML, priceHTML, listDoctorId, clinicLogo, clinicBackground } = this.state;
         let imageLogoBase64 = '';
         let imageBackgroundBase64 = '';
         if (clinicLogo) {
@@ -77,14 +77,41 @@ class DetailClinic extends React.Component {
                 <div className="clinic-container">
                     <div className="clinic-header" >
                         <div className="clinic-image-background" style={{ background: `url(${imageBackgroundBase64})` }}></div>
-                        <div className="clinic-title">
-                            <div className="clinic-logo" style={{ background: `url(${imageLogoBase64})` }}></div>
-                            <div className="clinic-name">{name}</div>
+                        <div className="clinic-header-intro">
+                            <div className="clinic-title">
+                                <div className="clinic-logo" style={{ background: `url(${imageLogoBase64})` }}></div>
+                                <div>
+                                    <div className="clinic-name">{name}</div>
+                                    <div className="clinic-address">{address}</div>
+                                </div>
+                            </div>
+                            <div className="nav">
+                                {listDoctorId && listDoctorId.length > 0 && <a href="#booking"><FormattedMessage id='clinicdetail.booking' /></a>}
+                                {introHTML && <a href="#intro"><FormattedMessage id='clinicdetail.intro' /></a>}
+                                {expertiseHTML && <a href="#expertise"><FormattedMessage id='clinicdetail.expertise' /></a>}
+                                {equipHTML && <a href="#equip"><FormattedMessage id='clinicdetail.equip' /></a>}
+                                {processHTML && <a href="#process"><FormattedMessage id='clinicdetail.process' /></a>}
+                                {priceHTML && <a href="#price"><FormattedMessage id='clinicdetail.price' /></a>}
+                            </div>
                         </div>
                     </div>
 
-                    <div className="clinic-doctor">
+                    <div className="web-intro">
+                        <div className="bookingcare">
+                            BookingCare là Nền tảng Y tế chăm sóc sức khỏe toàn diện hàng đầu Việt Nam kết nối người dùng với trên 200 bệnh viện - phòng khám uy tín, hơn 1,500 bác sĩ chuyên khoa giỏi và hàng nghìn dịch vụ, sản phẩm y tế chất lượng cao.
+                        </div>
+                        <div className="more-info">
+                            Từ nay, người bệnh có thể đặt lịch tại Khoa khám bệnh theo yêu cầu và Quốc tế, {name} thông qua hệ thống đặt khám BookingCare.
+                            <ul>
+                                <li>Khám theo giờ hẹn, giảm thiểu thời gian chờ đợi xếp hàng</li>
+                                <li>Được lựa chọn khám với các bác sĩ chuyên khoa giàu kinh nghiệm</li>
+                                <li>Hỗ trợ đặt khám trực tuyến trước khi đi khám (miễn phí đặt lịch)</li>
+                            </ul>
+                            Sau khi đặt khám, người bệnh sẽ nhận được hướng dẫn chi tiết về sự chuẩn bị cả TRƯỚC và TRONG và SAU KHI KHÁM để hành trình đi khám thuận tiện và hiệu quả hơn.
+                        </div>
+                    </div>
 
+                    <div className="clinic-doctor" id="booking">
                         {listDoctorId && listDoctorId.length > 0 &&
                             listDoctorId.map((item, index) => {
                                 return (
@@ -98,11 +125,43 @@ class DetailClinic extends React.Component {
                                 )
                             })
                         }
-
                     </div>
 
-                </div>
+                    <div className="clinic-content">
+                        {introHTML &&
+                            <div className="clinic-intro" id="intro"
+                                dangerouslySetInnerHTML={{ __html: introHTML }}
+                            >
+                            </div>
+                        }
+                        {expertiseHTML &&
+                            <div className="clinic-expertise" id="expertise"
+                                dangerouslySetInnerHTML={{ __html: expertiseHTML }}
+                            >
+                            </div>
+                        }
+                        {equipHTML &&
+                            <div className="clinic-equip" id="equip"
+                                dangerouslySetInnerHTML={{ __html: equipHTML }}
+                            >
+                            </div>
+                        }
 
+                        {processHTML &&
+                            <div className="clinic-process" id="process"
+                                dangerouslySetInnerHTML={{ __html: processHTML }}
+                            >
+                            </div>
+                        }
+
+                        {priceHTML &&
+                            <div className="clinic-price" id="price"
+                                dangerouslySetInnerHTML={{ __html: priceHTML }}
+                            >
+                            </div>
+                        }
+                    </div>
+                </div>
             </>
         )
     }
