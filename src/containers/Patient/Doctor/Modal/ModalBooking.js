@@ -70,6 +70,7 @@ class ModalBooking extends Component {
     }
 
     handleOnchangeInput = (event) => {
+        console.log(event.target.value);
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -82,7 +83,6 @@ class ModalBooking extends Component {
         const { doctorId, fullName, phoneNumber,
             email, address, reason, gender, birthday,
             date, timeType, doctorName } = this.state;
-
         const res = await postPatientBooking({
             doctorId: doctorId,
             doctorName: doctorName,
@@ -210,6 +210,7 @@ class ModalBooking extends Component {
                             <div className='col-6 form-group'>
                                 <label><FormattedMessage id='booking.gender'></FormattedMessage></label>
                                 <select className='form-control' value={gender} name='gender' onChange={(e) => this.handleOnchangeInput(e)}>
+                                    <option value=''>{this.props.language === languages.VI ? "Chọn giới tính" : "Choose gender"}</option>
                                     {listGenders && listGenders.length > 0 &&
                                         listGenders.map((item, index) => {
                                             return <option key={index} value={item.keyMap}>{this.props.language === languages.VI ? item.valueVi : item.valueEn}</option>

@@ -1,0 +1,24 @@
+.manage-patient-container {
+    .manage-patient-body {
+        .date {
+            padding: 0 20px;
+        }
+
+        .list-patient {
+            margin: 20px 0;
+            padding: 0 20px;
+
+            .action {
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                gap: 10px;
+
+                .btn-confirm {
+                    background-color: yellow;
+                }
+            }
+
+        }
+    }
+}

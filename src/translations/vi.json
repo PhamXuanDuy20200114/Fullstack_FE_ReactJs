@@ -84,7 +84,8 @@
             "schedule": "Quản lý kế hoạch khám bệnh",
             "appointment": "Quản lý lịch hẹn",
             "doctor-schedule": "Quản lý lịch làm việc của bác sĩ",
-            "doctor-appointment": "Quản lý lịch hẹn của bác sĩ"
+            "doctor-appointment": "Quản lý lịch hẹn của bác sĩ",
+            "manage-patient": "Quản lý bệnh nhân"
         }
     },
     "manageuser": {
@@ -157,7 +158,8 @@
         "free-booking": "Đặt lịch miễn phí",
         "birthday": "Ngày sinh",
         "save": "Lưu",
-        "cancel": "Hủy"
+        "cancel": "Hủy",
+        "choose-gender": "Chọn giới tính"
     },
     "verifybooking": {
         "true": "Xác thực thành công!",
@@ -199,5 +201,16 @@
         "phone": "Số điện thoại",
         "email": "Email",
         "website": "Website"
+    },
+    "managepatient": {
+        "manage-patient": "Quản lý bệnh nhân",
+        "choose-date": "Chọn ngày khám",
+        "name": "Tên bệnh nhân",
+        "phone": "Số điện thoại",
+        "examination-time": "Thời gian khám",
+        "gender": "Giới tính",
+        "confirm": "Xác nhận",
+        "action": "Hành động",
+        "no-data": "Không có dữ liệu"
     }
 }

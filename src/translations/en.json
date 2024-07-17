@@ -85,7 +85,8 @@
             "schedule": "Manage doctor schedule",
             "appointment": "Manage appointment",
             "doctor-schedule": "Manage doctor schedule",
-            "doctor-appointment": "Manage doctor appointment"
+            "doctor-appointment": "Manage doctor appointment",
+            "manage-patient": "Manage patient"
         }
     },
     "manageuser": {
@@ -158,7 +159,8 @@
         "free-booking": "Free appointment booking",
         "birthday": "Birthday",
         "save": "Save",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "choose-gender": "Choose gender"
     },
     "verifybooking": {
         "true": "Verify is successful!",
@@ -199,5 +201,16 @@
         "address": "Address",
         "email": "Email",
         "phone": "Phone"
+    },
+    "managepatient": {
+        "manage-patient": "Manage patient",
+        "choose-date": "Choose date",
+        "name": "Name",
+        "phone": "Phone",
+        "examination-time": "Examination time",
+        "gender": "Gender",
+        "confirm": "Confirm",
+        "action": "Action",
+        "no-data": "No data"
     }
 }

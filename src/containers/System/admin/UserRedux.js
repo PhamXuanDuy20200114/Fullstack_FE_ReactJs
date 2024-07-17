@@ -177,7 +177,6 @@ class UserRedux extends Component {
             data.id = this.state.userEditId;
             data.image = this.state.image;
             data.previewImgURL = this.state.previewImgURL;
-            console.log('data', data)
             this.props.editUser(data);
         }
 
@@ -188,7 +187,6 @@ class UserRedux extends Component {
         if (user.image) {
             imageBase64 = Buffer.from(user.image, 'base64').toString('binary');
         }
-        console.log('check image', imageBase64, user.image)
 
         this.setState({
             email: user.email,
@@ -213,7 +211,7 @@ class UserRedux extends Component {
 
         //user
         let { email, password, firstName, lastName,
-            phoneNumber, address, role, position, gender, image } = this.state;
+            phoneNumber, address, role, position, gender } = this.state;
 
         return (
 

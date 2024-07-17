@@ -87,7 +87,6 @@ class ProfileDoctor extends React.Component {
                 price = detailDoctor.doctorInfoData.priceData.valueEn;
             }
         }
-        console.log('detailDoctor', detailDoctor);
 
 
         return (
